@@ -346,8 +346,8 @@ a:hover {
     gap: 2rem;
 }
 .logos-grid img {
-    max-height: 150px; /* Adjust as needed */
-    max-width: 150px;
+    max-height: 50px; /* Adjust as needed */
+    max-width: 50px;
     filter: grayscale(100%);
     opacity: 0.7;
     transition: filter 0.3s ease, opacity 0.3s ease;
