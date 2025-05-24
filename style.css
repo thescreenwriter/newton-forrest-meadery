@@ -86,7 +86,7 @@ section.textured-bg .section-title {
 section.textured-bg-honeycomb {
     background-color: var(--color-rich-cream);
     position: relative;
-    z-index: 0; /* Keep this for the pseudo-element */
+    z-index: 0;
 }
 section.textured-bg-honeycomb::before {
     content: "";
@@ -110,7 +110,7 @@ h1, h2, .section-title, .section-subtitle {
     margin-top: 0;
     line-height: 1.2;
     text-transform: uppercase;
-    word-wrap: break-word; /* Help prevent overflow from long words */
+    word-wrap: break-word;
 }
 
 h1 { font-size: 3em; margin-bottom: var(--spacing-md); }
@@ -138,31 +138,52 @@ a:hover {
     opacity: 0.85;
 }
 
-.btn { /* Styles largely okay, ensure no fixed width */ }
+.btn { /* Styles largely okay */ }
 
 /* --- Header --- */
-.site-header { /* Styles largely okay, ensure z-index if sticky */
+.site-header {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-subtle-border);
+    background-color: var(--white);
     position: sticky;
     top: 0;
-    z-index: 1000; /* Ensure header is above other content when sticky */
- }
+    z-index: 1000;
+}
+/* ... other header styles ... */
+.search-bar-container {
+    padding: 1em 0;
+    background-color: var(--color-rich-cream);
+    border-bottom: 1px solid var(--color-subtle-border);
+    display: none; /* Ensure it's hidden by default */
+    text-align: center;
+    position: absolute; /* Position it below header, full width */
+    width: 100%;
+    left: 0;
+    top: 100%; /* Position right below the header */
+    z-index: 999; /* Below header but above content usually */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.search-bar-container.active { /* Add this class via JS to show */
+    display: block;
+}
+
 
 /* --- Hero Section --- */
 .hero-section {
     min-height: 80vh;
     height: auto;
-    position: relative; /* For absolute positioning of children */
+    position: relative;
     width: 100%;
-    overflow: hidden; /* Contains video and prevents content spill */
-    background: var(--white); /* Fallback */
+    overflow: hidden;
+    background: var(--white);
 }
-.hero-overlay { /* This div is primarily for the video background */
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Behind hero-content */
+    z-index: 1;
 }
 .hero-video {
     width: 100%;
@@ -170,25 +191,25 @@ a:hover {
     object-fit: cover;
 }
 .hero-content {
-    position: absolute; /* Positioned relative to hero-section */
+    position: absolute;
     top: 50%;
     left: 8%;
     transform: translateY(-50%);
-    z-index: 2; /* Above video overlay */
+    z-index: 2;
     color: var(--white);
     text-align: left;
-    background: none;
-    padding: var(--spacing-lg); /* Uniform padding */
+    background: none; /* Consider a very subtle scrim if contrast is still an issue: rgba(0,0,0,0.1); */
+    padding: var(--spacing-lg);
     max-width: 600px;
-    width: calc(100% - 16%); /* Ensure it doesn't overflow on smaller viewports before media queries kick in */
+    width: calc(100% - 16%);
 }
 .hero-content h1 {
     font-size: 3.2em;
     font-weight: 700;
-    color: var(--honey);
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5), 0 2px 8px rgba(255, 217, 102, 0.3);
+    color: var(--white); /* Changed to white for better base contrast */
+    text-shadow: 0px 0px 15px rgba(0,0,0,0.7), 0px 0px 5px rgba(0,0,0,0.9); /* Stronger, more spread out shadow */
     margin-bottom: var(--spacing-sm);
-    white-space: normal; /* Allow wrapping */
+    white-space: normal;
 }
 .hero-content p {
     font-size: 1.3em;
@@ -196,8 +217,19 @@ a:hover {
     font-weight: 400;
     margin-bottom: var(--spacing-lg);
     color: rgba(255,255,255,0.95);
+    text-shadow: 0px 0px 8px rgba(0,0,0,0.7); /* Shadow for paragraph too */
     line-height: 1.6;
 }
+.hero-content .btn-primary { /* Ensure button is visible */
+    color: var(--black);
+    background-color: var(--honey);
+    border-color: var(--honey-dark);
+}
+.hero-content .btn-primary:hover {
+    background-color: var(--honey-dark);
+    color: var(--white);
+}
+
 
 /* --- Product Carousel ("OUR RANGE") --- */
 .product-carousel {
@@ -216,23 +248,49 @@ a:hover {
     min-width: 320px;
     max-width: 400px;
     flex-shrink: 0;
-    /* Other styles largely okay */
-    overflow: hidden; /* Ensure rounded corners clip child img */
+    border: 1px solid var(--color-subtle-border); /* Add a border to define items if images are missing */
+    background: var(--off-white); /* Slight background for the item itself */
+    overflow: hidden;
 }
-.product-item img { background: var(--honey-light); }
+.product-item img {
+    width: 100%; /* Ensure image tries to take width if not fixed */
+    height: 200px; /* Keep fixed height for consistency */
+    object-fit: cover;
+    background: var(--honey-light); /* Fallback if image fails to load */
+    display: block; /* Remove extra space below image */
+}
+
+/* --- Our Heritage --- */
+.our-heritage .section-title { text-align: center; }
+.heritage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ensure grid layout */
+    gap: var(--spacing-lg);
+    text-align: center;
+}
+.heritage-item .heritage-icon {
+    font-size: 2.5em;
+    color: var(--honey-dark);
+    margin-bottom: 0.5em;
+    display: block;
+    /* If using actual icon font, ensure font-family is applied or fallback to text */
+    font-family: 'YourIconFont', Fallback, sans-serif; /* Example: Replace with your icon font if any */
+}
+
 
 /* --- Kairi Mead Section --- */
 .kairi-mead {
     position: relative;
-    color: var(--text-on-dark-bg);
-    overflow: hidden; /* Contains background and overlay */
+    color: var(--text-on-dark-bg); /* Ensure text is light */
+    overflow: hidden;
     padding-top: var(--spacing-xxl);
     padding-bottom: var(--spacing-xxl);
+    background-color: #3a2d0f; /* Fallback background color if image fails */
 }
 .kairi-mead-background-image {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('https://placehold.co/1200x800/3a2d0f/4f3e1a?text=Kairi+Mead+Atmosphere');
+    background-image: url('assets/images/kairi_mead_background.jpg'); /* IMPORTANT: User needs to replace this path */
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -241,63 +299,53 @@ a:hover {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%); /* Slightly lighter overlay */
     z-index: 2;
 }
 .kairi-mead-content {
     position: relative;
-    z-index: 3; /* Above background and overlay */
+    z-index: 3;
     display: flex;
     align-items: center;
     gap: var(--spacing-xl);
 }
 .kairi-text-content { flex: 1.5; padding-right: var(--spacing-lg); min-width: 0; }
+.kairi-mead .section-title { color: var(--honey); text-align: left; font-size: 2.8em; }
+.kairi-mead p.tagline { color: var(--honey-light); text-align: left; font-size: 1.5em; }
+.kairi-mead p { text-align: left; font-size: 1.1em; line-height: 1.8; color: rgba(255,255,255,0.9); }
 .kairi-image-showcase { flex: 1; text-align: center; min-width: 0; }
-.kairi-image-showcase img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
+.kairi-image-showcase img { /* Styles okay */ }
 
 
 /* --- Art and Science Sections - Side by Side --- */
-.art-science-wrapper { background-color: var(--off-white); overflow: hidden; /* If children have shadows that might cause scroll */ }
+.art-science-wrapper { background-color: var(--off-white); overflow: visible; /* Allow shadows from items to show */ }
 .art-science-container {
     display: flex;
     gap: var(--spacing-xl);
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Default to wrap */
 }
 .art-science-item {
     flex: 1 1 400px;
     max-width: 550px;
-    min-width: 300px; /* Min width before wrapping or becoming too squished */
-    /* Other styles largely okay */
-    overflow: hidden; /* If box-shadow is applied and might cause overflow on wrapper */
+    min-width: 300px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    overflow: hidden; /* Keep for image clipping */
+    text-decoration: none;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.art-science-image img { /* Styles okay */ }
-.art-science-content { /* Styles okay */ }
-
+/* Other .art-science-item styles okay */
 
 /* --- Newsletter Section (Main Page) --- */
-.newsletter-signup-section { /* Styles okay */ }
-.newsletter-form-main {
-    display: flex;
-    flex-wrap: wrap; /* Ensure wrapping on smaller screens */
-    justify-content: center; /* Center items when wrapped */
-    gap: var(--spacing-sm); /* Add gap for wrapped items */
-}
-.newsletter-form-main input[type="email"] {
-    flex-grow: 1; /* Allow input to grow */
-    min-width: 250px; /* Prevent input from becoming too small */
-}
-.newsletter-form-main button[type="submit"] {
-    flex-shrink: 0; /* Prevent button from shrinking */
-}
-
+/* Styles largely okay */
 
 /* --- How to Enjoy Section - Instagram Collage --- */
+.how-to-enjoy .section-title { text-align: center; }
 .instagram-collage {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -310,15 +358,66 @@ a:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     aspect-ratio: 1 / 1;
 }
-/* Other collage styles okay */
+.collage-item a { display: block; width: 100%; height: 100%; }
+.collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-out;
+}
+.collage-item:hover img {
+    transform: scale(1.1);
+}
+.collage-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    color: var(--white);
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+    text-align: left;
+    opacity: 0; /* Hidden by default */
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    pointer-events: none; /* Allow clicks to pass through to link if overlay covers it */
+}
+.collage-item a:hover .collage-item-overlay, /* Show on link hover */
+.collage-item a:focus .collage-item-overlay { /* Show on link focus for accessibility */
+    opacity: 1;
+    transform: translateY(0);
+}
+.collage-item-overlay span {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1.3em;
+    display: block;
+}
+
+
+/* --- As Seen In --- */
+.as-seen-in .section-title { text-align: center; }
+.logos-grid {
+    display: flex;
+    flex-wrap: wrap; /* Ensure wrapping */
+    justify-content: center; /* Center items */
+    align-items: center;
+    gap: var(--spacing-lg); /* Increase gap for better spacing */
+}
+.logos-grid img {
+    max-height: 45px; /* Slightly larger for clarity */
+    /* Other styles okay */
+}
 
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
     .hero-content {
-        left: 5%;
-        width: 90%; /* More fluid width */
-        margin-left: 0; /* Remove fixed margin if width is 90% and using absolute */
+        left: 50%; /* Center on tablet */
+        transform: translate(-50%, -50%);
+        width: 80%; /* Adjust width */
+        margin-left: 0;
+        text-align: center; /* Center text */
         padding: var(--spacing-lg);
     }
     .hero-content h1 { font-size: 2.5em; }
@@ -329,7 +428,7 @@ a:hover {
     .kairi-mead .section-title, .kairi-mead p.tagline, .kairi-mead p { text-align: center; }
 
     .art-science-container { flex-direction: column; align-items: center; }
-    .art-science-item { max-width: 500px; flex-basis: auto; width: 100%; /* Take full width when stacked */ }
+    .art-science-item { max-width: 500px; flex-basis: auto; width: 90%; /* Adjust width when stacked */ }
 }
 
 @media (max-width: 768px) {
@@ -337,22 +436,16 @@ a:hover {
     h2, .section-title { font-size: 1.8em; }
     .section-subtitle, h3 { font-size: 1.4em; }
 
-    .hero-content {
-        /* top: auto; bottom: var(--spacing-xl); Re-position for mobile if needed */
-        /* transform: none; */
-        text-align: center;
-        padding: var(--spacing-md);
-        max-width: 90%; /* Ensure it doesn't exceed viewport */
-        left: 50%;
-        transform: translate(-50%, -50%); /* Centering if text is centered */
-        /* If still left aligned: left: 5%; transform: translateY(-50%); width: 90%; */
-    }
     .hero-content h1 { font-size: 2em; }
     .hero-content p { font-size: 1.1em; }
 
     .product-item { min-width: 280px; max-width: calc(100vw - var(--spacing-lg)); }
     .product-carousel { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
 
+    .search-bar-container {
+        /* Ensure it doesn't conflict with sticky header if both are positioned */
+        /* If header is sticky, search bar might need different positioning or to push content down */
+    }
 
     .newsletter-form-main { flex-direction: column; gap: var(--spacing-md); }
     .newsletter-form-main input[type="email"],
@@ -367,15 +460,9 @@ a:hover {
     h2, .section-title { font-size: 1.6em; }
     .section-subtitle, h3 { font-size: 1.3em; }
 
-    .hero-content {
-        padding: var(--spacing-md);
-        /* margin-left: 0; Already handled by centering logic if applied */
-        /* text-align: center; Already set */
-        max-width: 95%;
-    }
+    .hero-content { max-width: 90%; padding: var(--spacing-md); }
     .hero-content h1 { font-size: 1.7em; }
     .hero-content p { font-size: 1em; }
-
 
     .product-carousel { gap: var(--spacing-md); }
     .product-item { min-width: calc(100% - var(--spacing-md)); scroll-snap-align: center; }
@@ -383,7 +470,7 @@ a:hover {
     .kairi-mead .section-title { font-size: 2em; }
     .kairi-mead p.tagline { font-size: 1.1em; }
 
-    .art-science-item { min-width: calc(100% - var(--spacing-md)); }
+    .art-science-item { min-width: calc(100% - var(--spacing-md)); width: 95%;}
 
     .instagram-collage { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--spacing-sm); }
 }
