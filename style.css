@@ -3,20 +3,20 @@
     /* Color Palette */
     --honey: #FFD966;
     --honey-dark: #b1880f;
-    --black: #181818; /* Updated black as per prompt */
+    --black: #181818;
     --white: #fff;
 
     /* Existing variables from your style.css - retained and integrated */
     --font-primary: 'Cormorant Garamond', serif;
     --font-secondary: 'Open Sans', sans-serif;
 
-    --color-deep-gold: #B08D57; /* This was your primary gold, prompt uses --honey */
+    --color-deep-gold: #B08D57;
     --color-rich-cream: #F5F0E6;
     --color-terracotta: #A0522D;
     --color-muted-olive: #6B7D3F;
     --color-copper-bronze: #B87333;
     --color-dark-text: #48423A;
-    --color-light-text: var(--white); /* Using new --white */
+    --color-light-text: var(--white);
     --color-grey: #7A7A7A;
     --color-subtle-border: #EAE0D6;
 
@@ -26,38 +26,35 @@
 body {
     font-family: var(--font-secondary);
     line-height: 1.7;
-    background: var(--white); /* Updated background */
-    color: var(--black);     /* Updated text color */
+    background: var(--white);
+    color: var(--black);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    margin: 0; /* Basic reset */
+    margin: 0;
 }
 
-/* General Container */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    background: transparent; /* As per prompt */
+    background: transparent;
 }
 
-/* Section Padding */
 .section-padding {
-    padding: 4em 0; /* As per prompt */
+    padding: 4em 0;
 }
 
-/* Section Backgrounds */
 section {
-    background: var(--white); /* Default section background */
+    background: var(--white);
 }
-section.textured-bg { /* For solid honey background */
+section.textured-bg {
     background: var(--honey);
-    color: var(--black); /* Ensure text is readable on honey background */
+    color: var(--black);
 }
 section.textured-bg .section-title {
-    color: var(--black); /* Or a darker shade like var(--honey-dark) for contrast */
+    color: var(--black);
 }
-section.textured-bg-honeycomb { /* Your existing honeycomb style */
+section.textured-bg-honeycomb {
     background-color: #fbf8f2;
     position: relative;
     z-index: 0;
@@ -71,23 +68,23 @@ section.textured-bg-honeycomb::before {
     z-index: -1;
 }
 
-
 /* --- Typography & Headings --- */
-h1, h2, .section-title { /* Updated heading styles */
+h1, h2, .section-title {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
     letter-spacing: 0.02em;
-    font-size: 2.5em; /* Base size, can be overridden */
-    color: #1a1a1a; /* Default heading color, as per prompt (var(--black) is #181818, close enough) */
+    font-size: 2.5em;
+    color: #1a1a1a;
     text-shadow: 0 2px 8px rgba(0,0,0,0.1);
     margin-top: 0;
     margin-bottom: 0.8em;
     line-height: 1.3;
+    text-transform: uppercase; /* Capitalize all section headings */
 }
 
-h3, h4 { /* Retaining your existing h3, h4 base from style.css */
+h3, h4 {
     font-family: var(--font-primary);
-    color: var(--color-deep-gold); /* Can be changed to --honey-dark if preferred */
+    color: var(--color-deep-gold);
     margin-bottom: 0.8em;
     line-height: 1.3;
     font-weight: 700;
@@ -95,18 +92,16 @@ h3, h4 { /* Retaining your existing h3, h4 base from style.css */
 h3 { font-size: 1.4em; }
 h4 { font-size: 1.2em; }
 
-
 a {
-    color: var(--color-terracotta); /* Your existing link color */
+    color: var(--color-terracotta);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 a:hover {
-    color: var(--honey-dark); /* Using new variable */
+    color: var(--honey-dark);
     text-decoration: none;
 }
 
-/* --- Buttons --- */
 .btn {
     padding: 0.9em 1.8em;
     border-radius: 3px;
@@ -119,8 +114,8 @@ a:hover {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 .btn-primary {
-    background-color: var(--honey); /* Using honey color */
-    color: var(--black); /* Text on honey button */
+    background-color: var(--honey);
+    color: var(--black);
     border-color: var(--honey);
 }
 .btn-primary:hover {
@@ -128,18 +123,18 @@ a:hover {
     color: var(--white);
     border-color: var(--honey-dark);
 }
-.btn-secondary { /* For product actions */
-    background-color: var(--color-muted-olive); /* Your existing secondary color */
+.btn-secondary {
+    background-color: var(--color-muted-olive);
     color: var(--white);
     border-color: var(--color-muted-olive);
 }
 .btn-secondary:hover {
-    background-color: #596934; /* Darker olive */
+    background-color: #596934;
     border-color: #596934;
 }
 .btn-outline {
     background-color: transparent;
-    color: var(--honey-dark); /* Using honey-dark */
+    color: var(--honey-dark);
     border: 1.5px solid var(--honey-dark);
 }
 .btn-outline:hover {
@@ -159,18 +154,18 @@ a:hover {
 
 /* --- Header --- */
 .site-header {
-    padding: 1.5em 0;
+    padding: 1em 0; /* Adjusted padding for logo snug fit */
     border-bottom: 1px solid var(--color-subtle-border);
-    background-color: var(--white); /* Ensure header has a background if body bg changes */
+    background-color: var(--white);
 }
-.header-container { /* Specific for header if needed, else .container styling applies */
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: transparent; /* As per prompt */
+    background: transparent;
 }
 .logo img {
-    max-height: 55px;
+    max-height: 65px; /* Increased logo size */
     display: block;
 }
 .main-nav ul {
@@ -180,15 +175,16 @@ a:hover {
     display: flex;
 }
 .main-nav ul li {
-    margin-left: 1.5em; /* Adjust spacing */
+    margin-left: 1.5em;
 }
 .main-nav ul li a {
     font-family: var(--font-primary);
     font-size: 1.15em;
-    color: var(--honey-dark); /* Using honey-dark */
+    color: var(--honey-dark);
     font-weight: 700;
-    padding: 0.5em 0.2em; /* Reduced horizontal padding for more items */
+    padding: 0.5em 0.2em;
     letter-spacing: 0.3px;
+    text-transform: uppercase; /* Capitalize menu items */
 }
 .main-nav ul li a:hover {
     color: var(--color-terracotta);
@@ -199,7 +195,7 @@ a:hover {
 }
 .header-icons .icon-button, .header-icons a.icon-button {
     margin-left: 1em;
-    color: var(--honey-dark); /* Using honey-dark for icons */
+    color: var(--honey-dark);
 }
 .header-icons .icon-button:hover, .header-icons a.icon-button:hover {
     color: var(--color-terracotta);
@@ -209,8 +205,8 @@ a:hover {
     height: 22px;
     fill: currentColor;
 }
-.nav-toggle { /* Basic styles for mobile nav toggle if you implement one */
-    display: none; /* Hidden on desktop */
+.nav-toggle {
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
@@ -219,15 +215,15 @@ a:hover {
     padding: 1em 0;
     background-color: var(--color-rich-cream);
     border-bottom: 1px solid var(--color-subtle-border);
-    display: none; /* Initially hidden */
-    text-align: center; /* Center search input and button */
+    display: none;
+    text-align: center;
 }
 .search-bar-container input[type="search"] {
     padding: 0.8em;
     border: 1px solid var(--color-subtle-border);
     border-radius: 3px;
     background-color: var(--white);
-    width: 60%; /* Adjust width as needed */
+    width: 60%;
     max-width: 400px;
 }
 .search-submit-btn {
@@ -247,140 +243,137 @@ a:hover {
     background-color: #596934;
 }
 
-
-/* --- Updated Hero Section --- */
-.hero-section, .hero-overlay { /* Combined as per prompt example */
+/* --- Hero Section --- */
+.hero-section, .hero-overlay {
     position: relative;
     width: 100%;
-    height: 75vh; /* As per prompt */
+    height: 75vh;
     overflow: hidden;
-    background: var(--white); /* Fallback background, video should cover */
+    background: var(--white);
 }
 .hero-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute; /* Ensure it's part of the flow for the overlay */
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Behind content */
+    z-index: 1;
 }
 .hero-content {
     position: absolute;
     top: 50%;
-    left: 8%; /* Position to the left */
+    left: 8%;
     transform: translateY(-50%);
-    color: var(--white); /* Text color on video */
+    color: var(--white);
     text-align: left;
-    background: none; /* Removed translucent background */
-    padding: 0; /* Removed padding, adjust if needed for spacing from edge */
-    max-width: 500px; /* Max width for content */
-    z-index: 2; /* Above video */
+    background: none;
+    padding: 0;
+    max-width: 550px; /* Adjusted max-width slightly */
+    z-index: 2;
 }
-.hero-content h1 { /* Specific hero heading style */
-    font-size: 3em; /* Larger for hero */
-    color: var(--honey); /* Honey color for extra pop */
-    text-shadow: 2px 2px 8px var(--black), 0 2px 8px rgba(255, 217, 102, 0.46); /* Shadow for readability, using var(--honey) with alpha */
+.hero-content h1 {
+    font-size: 3em; /* Base size, might need media queries for smaller screens to keep on one line */
+    color: var(--honey);
+    text-shadow: 2px 2px 8px var(--black), 0 2px 8px rgba(255, 217, 102, 0.46);
     margin-bottom: 0.5em;
+    text-transform: uppercase; /* Capitalize hero H1 */
+    white-space: nowrap; /* Attempt to keep on one line */
+    overflow: hidden; /* Hide overflow if it can't fit */
+    text-overflow: ellipsis; /* Add ellipsis if it overflows (optional) */
 }
-.hero-content p {
+.hero-content p { /* This is the sub-headline */
     font-size: 1.25em;
     margin-bottom: 1.5em;
-    color: rgba(255,255,255,0.95); /* High contrast white */
+    color: rgba(255,255,255,0.95);
+    /* text-transform: none; Ensure it's not uppercase if inheriting from a general rule */
 }
-.hero-content .btn-primary { /* Ensure hero button stands out */
+.hero-content .btn-primary {
     padding: 1em 2em;
     font-size: 1em;
-    /* It will inherit --honey bg and --black text from general .btn-primary */
 }
 
-
-/* --- Updated Product Carousel --- */
-.prominence-channel .section-title {
-    text-align: center; /* Center the "Featured Products" title */
+/* --- Product Carousel ("OUR RANGE") --- */
+.prominence-channel .section-title { /* Already uppercase due to general .section-title rule */
+    text-align: center;
     margin-bottom: 1.5em;
 }
 .product-carousel {
     display: flex;
-    overflow-x: auto; /* Allows horizontal scrolling */
-    gap: 2em; /* Space between product items */
-    scroll-snap-type: x mandatory; /* Smooth snapping */
-    padding: 2em 0.5em; /* Padding top/bottom and a little on sides for scrollbar */
-    background: var(--white); /* Background for the carousel area itself */
-    /* Hide scrollbar - cross-browser */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    overflow-x: auto;
+    gap: 2em;
+    scroll-snap-type: x mandatory;
+    padding: 2em 0.5em;
+    background: var(--white);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
-.product-carousel::-webkit-scrollbar { /* Chrome, Safari, Opera */
+.product-carousel::-webkit-scrollbar {
     display: none;
 }
-
 .product-item {
-    display: flex; /* Key for side-by-side layout */
-    align-items: center; /* Vertically align image and details */
+    display: flex;
+    align-items: center;
     background: var(--white);
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 2px 12px rgba(200,180,80,0.12); /* Subtle shadow */
-    min-width: 400px; /* Minimum width of each item */
-    max-width: 450px; /* Maximum width, adjust as needed */
-    scroll-snap-align: start; /* Snap to the start of the item */
-    /* margin-right: 2em; /* Replaced by gap in .product-carousel */
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(200,180,80,0.12);
+    min-width: 400px;
+    max-width: 450px;
+    scroll-snap-align: start;
     transition: box-shadow 0.2s ease-in-out;
-    overflow: hidden; /* Ensures border-radius applies to image */
+    overflow: hidden;
 }
 .product-item:hover {
-    box-shadow: 0 4px 24px rgba(240,210,70,0.24); /* Enhanced shadow on hover */
+    box-shadow: 0 4px 24px rgba(240,210,70,0.24);
 }
 .product-item img {
-    width: 160px; /* Fixed width for the image */
-    height: 200px; /* Fixed height for consistency */
-    object-fit: cover; /* Cover the area, might crop */
-    border-radius: 12px 0 0 12px; /* Round top-left and bottom-left corners */
-    /* background: #f4cf5d; Removed, image should fill */
+    width: 160px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px 0 0 12px;
+    background: #f4cf5d; /* Vivid background for the image area */
     display: block;
 }
 .product-details {
-    padding: 1em 1.5em; /* Padding inside the details section */
+    padding: 1em 1.5em;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align text to the left */
-    flex-grow: 1; /* Allow details to take remaining space */
-    justify-content: center; /* Center content vertically if needed, or remove for top align */
+    align-items: flex-start;
+    flex-grow: 1;
+    justify-content: center;
 }
-.product-details h3 { /* Product title in carousel */
+.product-details h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5em;
     margin: 0 0 0.2em 0;
-    color: var(--honey-dark); /* Honey color for title */
-    font-weight: 700; /* Ensure it's bold */
+    color: var(--honey-dark);
+    font-weight: 700;
 }
 .product-details .price {
     font-size: 1.2em;
-    color: var(--black); /* Darker price text */
+    color: var(--black);
     font-weight: bold;
-    margin-bottom: 0.75em; /* Space above actions */
+    margin-bottom: 0.75em;
 }
 .product-actions {
     display: flex;
-    gap: 0.7em; /* Space between buttons */
-    width: 100%; /* Make actions take full width of details */
+    gap: 0.7em;
+    width: 100%;
 }
 .product-actions .btn-quick-add {
     font-size: 0.85em;
-    padding: 0.7em 1em; /* Adjust padding */
-    flex-grow: 1; /* Allow button to grow */
+    padding: 0.7em 1em;
+    flex-grow: 1;
 }
 .product-actions .btn-favorite {
-    font-size: 1.4em; /* Heart icon size */
+    font-size: 1.4em;
     color: var(--color-grey);
-    padding: 0.5em; /* Make it easier to click */
+    padding: 0.5em;
 }
 .product-actions .btn-favorite:hover,
-.product-actions .btn-favorite.active { /* Assuming .active class is toggled by JS */
-    color: var(--color-terracotta); /* Or var(--honey) */
+.product-actions .btn-favorite.active {
+    color: var(--color-terracotta);
 }
-
-/* Carousel Controls Styling */
 .carousel-controls {
     text-align: center;
     margin-top: 1.5em;
@@ -391,7 +384,7 @@ a:hover {
     border: 1.5px solid var(--honey-dark);
     width: 45px;
     height: 45px;
-    border-radius: 50%; /* Circular buttons */
+    border-radius: 50%;
     font-size: 1.5em;
     margin: 0 0.5em;
     cursor: pointer;
@@ -402,9 +395,8 @@ a:hover {
     color: var(--white);
 }
 
-
-/* --- Our Heritage (using your existing styles, adapted for new color vars) --- */
-.our-heritage .section-title {
+/* --- Our Heritage --- */
+.our-heritage .section-title { /* Already uppercase */
     text-align: center;
     margin-bottom: 1.5em;
 }
@@ -415,38 +407,77 @@ a:hover {
     text-align: center;
 }
 .heritage-item .heritage-icon {
-    font-size: 2.2em; /* Ensure this is large enough */
-    color: var(--color-muted-olive); /* Your existing icon color */
+    font-size: 2.2em;
+    color: var(--color-muted-olive);
     margin-bottom: 0.5em;
     display: block;
 }
 .heritage-item h3 {
-    color: var(--honey-dark); /* Using new var */
+    color: var(--honey-dark);
     font-size: 1.3em;
     margin-bottom: 0.5em;
 }
 .heritage-item p {
     font-size: 0.95em;
-    color: var(--color-grey); /* Your existing paragraph color */
+    color: var(--color-grey);
 }
 
-/* --- Mead Info Section --- */
-.mead-info h2 a.text-link {
-    font-size: 1em; /* Match parent h2 size */
-    color: inherit; /* Inherit color from h2 */
+/* --- Kairi Mead Section --- */
+.kairi-mead {
+    position: relative; /* For positioning text overlay */
+    background-image: url('https://placehold.co/1200x600/333/555?text=Kairi+Mead+Background'); /* Placeholder Image */
+    background-size: cover;
+    background-position: center;
+    color: var(--white); /* Text color for on top of dark image */
+    padding: 6em 0; /* Adjust padding as needed */
 }
-.mead-info p {
-    margin-top: 0.5em;
-    margin-bottom: 1.5em;
+.kairi-mead::before { /* Optional: Dark overlay for better text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust darkness */
+    z-index: 1;
+}
+.kairi-mead-content {
+    position: relative; /* To sit on top of the ::before pseudo-element */
+    z-index: 2;
+    max-width: 700px; /* Or adjust as needed */
+    margin-left: 0; /* For left alignment */
+    margin-right: auto;
+}
+.kairi-mead .section-title { /* KAIRI MEAD heading */
+    color: var(--honey); /* Make it stand out */
+    text-align: left;
+    /* text-transform: uppercase; Already handled by general .section-title */
+    margin-bottom: 0.75em;
+}
+.kairi-mead p {
+    text-align: left;
     font-size: 1.1em;
-    color: var(--color-dark-text);
+    line-height: 1.8;
+    margin-bottom: 0;
 }
-.text-center {
+
+
+/* --- Art of Mead / Science of Mead Sections --- */
+.art-of-mead .section-title, .science-of-mead .section-title { /* Already uppercase */
+    text-align: center;
+    margin-bottom: 1em;
+}
+.art-of-mead p, .science-of-mead p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
 
 /* --- As Seen In --- */
-.as-seen-in .section-title {
+.as-seen-in .section-title { /* Already uppercase */
     text-align: center;
     margin-bottom: 1.5em;
 }
@@ -458,7 +489,7 @@ a:hover {
     gap: 2em;
 }
 .logos-grid img {
-    max-height: 40px; /* Slightly smaller for subtlety */
+    max-height: 40px;
     filter: grayscale(80%) opacity(0.7);
     transition: filter 0.3s ease;
 }
@@ -467,42 +498,42 @@ a:hover {
 }
 
 /* --- How to Enjoy --- */
-.how-to-enjoy .section-title {
-    /* color: var(--black); Ensure contrast if on --honey background */
+.how-to-enjoy .section-title { /* Already uppercase */
+   /* color: var(--black); Ensure contrast if on --honey background */
 }
 .how-to-enjoy p {
     margin-bottom: 1.5em;
     font-size: 1.1em;
 }
 .enjoy-visual-placeholder img {
-    border-radius: 8px; /* If an image is used */
+    border-radius: 8px;
 }
-
 
 /* --- Footer --- */
 .site-footer {
-    background: var(--black); /* Updated background */
-    color: var(--white);     /* Updated text color */
-    padding-top: 3em; /* section-padding might be too much, adjust */
-    padding-bottom: 1em;
+    background: var(--black);
+    color: var(--white);
+    padding-top: 3.5em; /* Adjusted padding */
+    padding-bottom: 1.5em; /* Adjusted padding */
 }
-.site-footer a { /* General links in footer */
-    color: var(--honey-dark); /* Links stand out on dark bg */
+.site-footer a {
+    color: var(--honey-dark);
 }
 .site-footer a:hover {
     color: var(--honey);
 }
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2em;
-    margin-bottom: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); /* Slightly adjusted minmax */
+    gap: 2.5em; /* Adjusted gap */
+    margin-bottom: 2.5em; /* Adjusted margin */
 }
 .footer-column h4 {
-    color: var(--honey); /* Headings in footer */
+    color: var(--honey);
     font-size: 1.25em;
     letter-spacing: 0.5px;
-    margin-bottom: 1em;
+    margin-bottom: 1.2em; /* Increased space below heading */
+    text-transform: uppercase; /* Ensure footer headings are also uppercase if desired */
 }
 .footer-column ul {
     list-style: none;
@@ -510,10 +541,10 @@ a:hover {
     margin: 0;
 }
 .footer-column ul li {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.6em; /* Adjusted spacing */
 }
 .footer-column ul li a {
-    color: var(--white); /* Nav links in footer */
+    color: var(--white);
     font-size: 0.95em;
 }
 .footer-column ul li a:hover {
@@ -522,31 +553,42 @@ a:hover {
 .footer-column p {
     font-size: 0.95em;
     line-height: 1.6;
-    color: var(--white); /* Paragraph text in footer */
+    color: var(--white);
+    margin-bottom: 1em; /* Add some space below paragraphs in footer columns */
+}
+.footer-newsletter h4, .footer-newsletter p {
+    /* Potentially more prominent styling or different alignment if desired */
 }
 .newsletter-form {
     display: flex;
-    margin-top: 1em;
+    margin-top: 0.5em; /* Reduced margin-top */
 }
 .newsletter-form input[type="email"] {
     flex-grow: 1;
-    padding: 0.8em;
+    padding: 0.9em; /* Slightly more padding */
     border: 1px solid var(--honey-dark);
-    background-color: rgba(255,255,255,0.1); /* Slightly transparent input on dark bg */
+    background-color: rgba(255,255,255,0.1);
     color: var(--white);
     border-radius: 3px 0 0 3px;
+    font-size: 0.9em;
 }
 .newsletter-form input[type="email"]::placeholder {
     color: rgba(255,255,255,0.7);
 }
 .newsletter-form button[type="submit"] {
     border-radius: 0 3px 3px 0;
-    /* Uses .btn .btn-primary styles: --honey bg, --black text */
-    padding: 0.8em 1em; /* Adjust if needed */
+    padding: 0.9em 1.2em; /* Matched input padding */
+    font-size: 0.9em;
+}
+.social-icons {
+    margin-top: 0.5em; /* Space above social icons */
 }
 .social-icons a {
     margin-right: 1em;
-    color: var(--white); /* Social icons color */
+    color: var(--white);
+}
+.social-icons a:last-child {
+    margin-right: 0;
 }
 .social-icons a:hover {
     color: var(--honey);
@@ -560,38 +602,50 @@ a:hover {
     text-align: center;
     padding-top: 1.5em;
     margin-top: 2em;
-    border-top: 1px solid rgba(255,255,255,0.2); /* Separator line */
+    border-top: 1px solid rgba(255,255,255,0.2);
     font-size: 0.9em;
-    color: rgba(255,255,255,0.7); /* Subtler text for legal */
+    color: rgba(255,255,255,0.7);
 }
 .legal-footer a {
     color: rgba(255,255,255,0.7);
+    margin: 0 0.3em;
 }
 .legal-footer a:hover {
     color: var(--honey);
 }
 .legal-footer p {
-    margin-top: 0.5em;
+    margin-top: 0.75em;
     margin-bottom: 0;
     color: rgba(255,255,255,0.7);
 }
 
 /* --- Responsive Adjustments --- */
+@media (max-width: 1024px) { /* Adjust breakpoint for hero h1 */
+    .hero-content h1 {
+        font-size: 2.5em; /* Smaller on tablets to help with single line */
+        white-space: normal; /* Allow wrapping on smaller screens if needed */
+    }
+}
+
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center; /* Center logo on mobile */
+    }
+    .logo img {
+        max-height: 55px; /* Slightly smaller logo on mobile */
+        margin-bottom: 0.5em;
     }
     .main-nav {
         width: 100%;
-        margin-top: 1em;
+        margin-top: 0.5em;
     }
     .main-nav ul {
-        display: none; /* Hidden by default on mobile */
+        display: none;
         flex-direction: column;
         width: 100%;
     }
-    .main-nav ul.nav-active { /* Class toggled by JS */
+    .main-nav ul.nav-active {
         display: flex;
     }
     .main-nav ul li {
@@ -604,14 +658,15 @@ a:hover {
         padding: 0.8em;
     }
     .nav-toggle {
-        display: block; /* Show hamburger */
-        position: absolute; /* Position it relative to header */
-        top: 2em; /* Adjust as needed */
-        right: 1em; /* Adjust as needed */
-        font-size: 1.5em;
+        display: block;
+        position: absolute;
+        top: 1.7em; /* Adjust to align with potentially smaller header */
+        right: 1em;
+        font-size: 1.5em; /* Ensure hamburger is clickable */
         color: var(--honey-dark);
+        z-index: 100; /* Ensure it's above other elements */
     }
-    .hamburger { /* Basic hamburger icon lines */
+    .hamburger {
       display: block;
       width: 25px;
       height: 3px;
@@ -623,61 +678,80 @@ a:hover {
     .nav-toggle.active .hamburger:nth-child(2) { opacity: 0; }
     .nav-toggle.active .hamburger:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-
     .header-icons {
         margin-top: 1em;
-        align-self: center; /* Center icons if header is column */
+        align-self: center;
     }
 
-    .hero-content { /* Hero adjustments for smaller screens */
+    .hero-content {
         left: 5%;
         right: 5%;
-        max-width: 90vw; /* Allow it to use more width */
-        text-align: center; /* Center text on mobile */
-        padding: 1em; /* Add some padding */
+        max-width: 90vw;
+        text-align: center;
+        padding: 1em;
     }
     .hero-content h1 {
-        font-size: 2.2em; /* Adjust font size */
+        font-size: 2em; /* Further adjust for mobile */
+        white-space: normal; /* Allow wrapping on mobile */
     }
     .hero-content p {
         font-size: 1em;
     }
 
     .product-item {
-        min-width: 300px; /* Adjust for smaller screens */
-        flex-direction: column; /* Stack image and details on mobile */
-        align-items: stretch; /* Stretch items */
+        min-width: 300px;
+        flex-direction: column;
+        align-items: stretch;
     }
     .product-item img {
-        width: 100%; /* Full width image */
-        height: 200px; /* Maintain height or set to auto */
-        border-radius: 12px 12px 0 0; /* Adjust border radius */
+        width: 100%;
+        height: 200px;
+        border-radius: 12px 12px 0 0;
     }
     .product-details {
         padding: 1em;
-        align-items: center; /* Center details text */
+        align-items: center;
         text-align: center;
     }
     .product-actions {
-        justify-content: center; /* Center buttons */
+        justify-content: center;
+    }
+    
+    .kairi-mead {
+        padding: 4em 0;
+    }
+    .kairi-mead-content {
+        text-align: center;
+    }
+    .kairi-mead .section-title, .kairi-mead p {
+        text-align: center;
     }
 
+
     .footer-grid {
-        grid-template-columns: 1fr; /* Stack footer columns */
+        grid-template-columns: 1fr;
         text-align: center;
+    }
+    .footer-column {
+        margin-bottom: 1em; /* Add space between stacked columns */
     }
     .footer-column h4 {
         margin-top: 1em;
     }
     .newsletter-form {
         flex-direction: column;
+        align-items: center;
     }
     .newsletter-form input[type="email"] {
         border-radius: 3px;
         margin-bottom: 0.5em;
+        width: 100%;
+        max-width: 350px; /* Limit width on mobile */
     }
     .newsletter-form button[type="submit"] {
         border-radius: 3px;
+        width: 100%;
+        max-width: 350px; /* Limit width on mobile */
     }
     .social-icons {
         justify-content: center;
