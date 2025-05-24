@@ -36,6 +36,17 @@
     --honeycomb-bg-subtle: url("data:image/svg+xml,%3Csvg width='80' height='92' viewBox='0 0 80 92' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23B08D57' fill-opacity='0.03'%3E%3Cpath d='M40 0L0 23v46l40 23 40-23V23L40 0zm0 8L73.3 27v38L40 84 6.7 65V27L40 8z M40 16l26.65 15.37v30.77L40 77.5 13.35 62.15V31.37L40 16z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
+/* Global Reset and Box Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-secondary);
     font-weight: 400;
@@ -63,7 +74,7 @@ body {
 
 section {
     background: var(--white);
-    overflow: hidden; /* Prevent children from breaking out unexpectedly */
+    /* Removed global overflow: hidden; Apply selectively */
 }
 section.textured-bg {
     background: var(--honey-light);
@@ -130,45 +141,46 @@ a:hover {
 .btn { /* Styles largely okay, ensure no fixed width */ }
 
 /* --- Header --- */
-.site-header { /* Styles largely okay */ }
+.site-header { /* Styles largely okay, ensure z-index if sticky */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure header is above other content when sticky */
+ }
 
 /* --- Hero Section --- */
 .hero-section {
-    min-height: 80vh; /* Changed from height to min-height */
-    height: auto; /* Allow it to grow if content is taller */
-    position: relative; /* For absolute positioning of overlay and content */
+    min-height: 80vh;
+    height: auto;
+    position: relative; /* For absolute positioning of children */
     width: 100%;
-    overflow: hidden; /* Contains video */
+    overflow: hidden; /* Contains video and prevents content spill */
     background: var(--white); /* Fallback */
-    display: flex; /* To help center content if needed, though absolute positioning is used */
-    align-items: center;
-    justify-content: flex-start; /* For left-aligned text */
 }
-.hero-overlay { /* This div wraps video and content */
-    position: relative; /* Or static if hero-section handles all positioning */
-    width: 100%;
-    height: 100%; /* Ensure it fills hero-section if hero-section has a defined height */
-    min-height: inherit; /* Inherit min-height from parent */
-}
-.hero-video {
-    position: absolute; /* Take out of flow, cover parent */
+.hero-overlay { /* This div is primarily for the video background */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1; /* Behind hero-content */
+}
+.hero-video {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    z-index: 1;
 }
 .hero-content {
-    position: relative; /* Changed from absolute to relative to flow within hero-overlay, or keep absolute and ensure hero-overlay is positioned parent */
-    z-index: 2; /* Above video */
+    position: absolute; /* Positioned relative to hero-section */
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 2; /* Above video overlay */
     color: var(--white);
     text-align: left;
     background: none;
-    padding: var(--spacing-lg) var(--spacing-xl); /* Added some padding */
+    padding: var(--spacing-lg); /* Uniform padding */
     max-width: 600px;
-    margin-left: 8%; /* Re-evaluate positioning if changed from absolute */
-    /* If keeping absolute: top: 50%; transform: translateY(-50%); left: 8%; */
+    width: calc(100% - 16%); /* Ensure it doesn't overflow on smaller viewports before media queries kick in */
 }
 .hero-content h1 {
     font-size: 3.2em;
@@ -190,21 +202,22 @@ a:hover {
 /* --- Product Carousel ("OUR RANGE") --- */
 .product-carousel {
     display: flex;
-    overflow-x: auto; /* Allows horizontal scrolling */
-    overflow-y: hidden; /* Prevent vertical scroll */
-    gap: var(--spacing-lg); /* Use variable */
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: var(--spacing-lg);
     scroll-snap-type: x mandatory;
-    padding: var(--spacing-lg) var(--spacing-xs); /* Adjust padding */
+    padding: var(--spacing-lg) var(--spacing-xs);
     background: var(--white);
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 .product-carousel::-webkit-scrollbar { display: none; }
 .product-item {
-    min-width: 320px; /* Adjusted min-width */
-    max-width: 400px; /* Adjusted max-width */
+    min-width: 320px;
+    max-width: 400px;
+    flex-shrink: 0;
     /* Other styles largely okay */
-    flex-shrink: 0; /* Prevent items from shrinking too much */
+    overflow: hidden; /* Ensure rounded corners clip child img */
 }
 .product-item img { background: var(--honey-light); }
 
@@ -212,7 +225,7 @@ a:hover {
 .kairi-mead {
     position: relative;
     color: var(--text-on-dark-bg);
-    overflow: hidden;
+    overflow: hidden; /* Contains background and overlay */
     padding-top: var(--spacing-xxl);
     padding-bottom: var(--spacing-xxl);
 }
@@ -222,24 +235,24 @@ a:hover {
     background-image: url('https://placehold.co/1200x800/3a2d0f/4f3e1a?text=Kairi+Mead+Atmosphere');
     background-size: cover;
     background-position: center;
-    z-index: 1; /* Stays behind content */
+    z-index: 1;
 }
-.kairi-mead-background-image::after {
+.kairi-mead-background-image::after { /* Overlay */
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 100%);
-    z-index: 2; /* Above image, below content */
+    z-index: 2;
 }
 .kairi-mead-content {
     position: relative;
-    z-index: 3;
+    z-index: 3; /* Above background and overlay */
     display: flex;
     align-items: center;
     gap: var(--spacing-xl);
 }
-.kairi-text-content { flex: 1.5; padding-right: var(--spacing-lg); min-width: 0; /* For flex shrink */ }
-.kairi-image-showcase { flex: 1; text-align: center; min-width: 0; /* For flex shrink */ }
+.kairi-text-content { flex: 1.5; padding-right: var(--spacing-lg); min-width: 0; }
+.kairi-image-showcase { flex: 1; text-align: center; min-width: 0; }
 .kairi-image-showcase img {
     max-width: 100%;
     height: auto;
@@ -249,18 +262,19 @@ a:hover {
 
 
 /* --- Art and Science Sections - Side by Side --- */
-.art-science-wrapper { background-color: var(--off-white); }
+.art-science-wrapper { background-color: var(--off-white); overflow: hidden; /* If children have shadows that might cause scroll */ }
 .art-science-container {
     display: flex;
     gap: var(--spacing-xl);
     justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens before media query */
+    flex-wrap: wrap;
 }
 .art-science-item {
-    flex: 1 1 400px; /* Allow shrinking, growing, with a base size */
+    flex: 1 1 400px;
     max-width: 550px;
+    min-width: 300px; /* Min width before wrapping or becoming too squished */
     /* Other styles largely okay */
-    min-width: 300px; /* Ensure it doesn't get too small before wrapping */
+    overflow: hidden; /* If box-shadow is applied and might cause overflow on wrapper */
 }
 .art-science-image img { /* Styles okay */ }
 .art-science-content { /* Styles okay */ }
@@ -270,11 +284,16 @@ a:hover {
 .newsletter-signup-section { /* Styles okay */ }
 .newsletter-form-main {
     display: flex;
-    /* ... other styles */
-    flex-wrap: wrap; /* Allow button to wrap below input on small screens */
+    flex-wrap: wrap; /* Ensure wrapping on smaller screens */
+    justify-content: center; /* Center items when wrapped */
+    gap: var(--spacing-sm); /* Add gap for wrapped items */
 }
 .newsletter-form-main input[type="email"] {
+    flex-grow: 1; /* Allow input to grow */
     min-width: 250px; /* Prevent input from becoming too small */
+}
+.newsletter-form-main button[type="submit"] {
+    flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 
@@ -283,11 +302,10 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-md);
-    /* overflow: hidden; Not typically needed on the grid container itself unless children are positioned outside */
 }
 .collage-item {
     position: relative;
-    overflow: hidden; /* Good for containing scaled image */
+    overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     aspect-ratio: 1 / 1;
@@ -297,7 +315,12 @@ a:hover {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
-    .hero-content { margin-left: 5%; max-width: 90%; } /* Adjust hero content positioning */
+    .hero-content {
+        left: 5%;
+        width: 90%; /* More fluid width */
+        margin-left: 0; /* Remove fixed margin if width is 90% and using absolute */
+        padding: var(--spacing-lg);
+    }
     .hero-content h1 { font-size: 2.5em; }
 
     .kairi-mead-content { flex-direction: column; text-align: center; }
@@ -305,9 +328,8 @@ a:hover {
     .kairi-image-showcase { order: 1; margin-bottom: var(--spacing-lg); max-width: 350px; margin-left:auto; margin-right:auto;}
     .kairi-mead .section-title, .kairi-mead p.tagline, .kairi-mead p { text-align: center; }
 
-    /* .art-science-container already flex-direction: column in previous CSS, ensure it's here if not */
     .art-science-container { flex-direction: column; align-items: center; }
-    .art-science-item { max-width: 500px; flex-basis: auto; /* Reset basis when stacking */ }
+    .art-science-item { max-width: 500px; flex-basis: auto; width: 100%; /* Take full width when stacked */ }
 }
 
 @media (max-width: 768px) {
@@ -315,10 +337,20 @@ a:hover {
     h2, .section-title { font-size: 1.8em; }
     .section-subtitle, h3 { font-size: 1.4em; }
 
+    .hero-content {
+        /* top: auto; bottom: var(--spacing-xl); Re-position for mobile if needed */
+        /* transform: none; */
+        text-align: center;
+        padding: var(--spacing-md);
+        max-width: 90%; /* Ensure it doesn't exceed viewport */
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centering if text is centered */
+        /* If still left aligned: left: 5%; transform: translateY(-50%); width: 90%; */
+    }
     .hero-content h1 { font-size: 2em; }
     .hero-content p { font-size: 1.1em; }
 
-    .product-item { min-width: 280px; max-width: calc(100vw - var(--spacing-lg)); /* More fluid on mobile */ }
+    .product-item { min-width: 280px; max-width: calc(100vw - var(--spacing-lg)); }
     .product-carousel { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
 
 
@@ -328,17 +360,21 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-    .container { width: 95%; } /* Slightly more width on very small screens */
+    .container { width: 95%; padding-left: var(--spacing-xs); padding-right: var(--spacing-xs); }
     .section-padding { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
 
     h1 { font-size: 1.8em; }
     h2, .section-title { font-size: 1.6em; }
     .section-subtitle, h3 { font-size: 1.3em; }
 
-
+    .hero-content {
+        padding: var(--spacing-md);
+        /* margin-left: 0; Already handled by centering logic if applied */
+        /* text-align: center; Already set */
+        max-width: 95%;
+    }
     .hero-content h1 { font-size: 1.7em; }
     .hero-content p { font-size: 1em; }
-    .hero-content { padding: var(--spacing-md); margin-left: 0; /* Center it fully */ text-align: center; }
 
 
     .product-carousel { gap: var(--spacing-md); }
