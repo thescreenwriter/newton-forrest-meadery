@@ -1,323 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newton-Forrest Meadery - A Taste of Trinidad's Natural Luxury</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newton-Forrest Apiaries</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="site-header">
-        <div class="container header-container">
-            <div class="logo">
-                <a href="index.html"><img src="assets/images/logo.png" alt="Newton-Forrest Meadery Logo" onerror="this.onerror=null;this.src='https://placehold.co/200x60/f0f0f0/333?text=Logo+Not+Found';"></a>
-            </div>
-            <nav class="main-nav">
-                <button class="nav-toggle" aria-label="toggle navigation">
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                </button>
-                <ul>
-                    <li><a href="pages/shop.html">Shop</a></li>
-                    <li><a href="pages/heritage.html">Heritage</a></li>
-                    <li><a href="pages/stockists.html">Stockists</a></li>
-                    <li><a href="pages/blog.html">Blog</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-icons">
-                <button class="icon-button search-icon" aria-label="Search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5C16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
-                <a href="pages/login-register.html" class="icon-button user-icon" aria-label="Login/Register"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></a>
-                <a href="pages/cart.html" class="icon-button cart-icon" aria-label="Cart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20.01 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></a>
-            </div>
-        </div>
-        <div class="search-bar-container">
-            <input type="search" placeholder="Search the site...">
-            <button class="search-submit-btn">Search</button>
-        </div>
-    </header>
+  <!-- Hero Banner -->
+  <header class="hero">
+    <video autoplay loop muted playsinline class="hero-video">
+      <source src="hero-banner.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay">
+      <h1>Where the Wild Things Age.</h1>
+      <a href="#products" class="scroll-cue">Discover the Range ↓</a>
+    </div>
+  </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-overlay">
-                <video autoplay muted loop playsinline id="heroVideo" src="assets/videos/nf_001.mp4" class="hero-video">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="hero-content">
-                    <h1>Experience the Art of Mead</h1>
-                    <p>Newton-Forrest Meadery: A taste of Trinidad's natural luxury, crafted from ancient traditions and the wild heart of the Northern Range.</p>
-                    <a href="pages/shop.html" class="btn btn-primary">Discover Our Collection</a>
-                </div>
-            </div>
-        </section>
+  <!-- About Preview -->
+  <section class="about">
+    <div class="about-text">
+      <h2>Our Story</h2>
+      <p>Crafted in harmony with Trinidad’s wild flora, Newton-Forrest meads blend tradition, terroir, and time. Every bottle tells a tale of patient fermentation and foraged wonder.</p>
+      <a href="#" class="cta-button">Read Our Story</a>
+    </div>
+    <div class="about-img placeholder"></div>
+  </section>
 
-        <section class="prominence-channel section-padding">
-            <div class="container">
-                <h2 class="section-title">OUR RANGE</h2>
-                <div class="product-carousel">
-                    <div class="product-item">
-                        <img src="assets/images/nf_002.png" alt="Traditional Mead" onerror="this.onerror=null;this.src='https://placehold.co/160x200/f4cf5d/333?text=Mead';">
-                        <div class="product-details">
-                            <h3>Traditional Mead</h3>
-                            <p class="price">$15.00</p>
-                            <div class="product-actions">
-                                <button class="btn btn-secondary btn-quick-add">Add to Basket</button>
-                                <button class="icon-button btn-favorite" aria-label="Add to Favorites">&#x2661;</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <img src="assets/images/nf_004.png" alt="Java Plum Melomel" onerror="this.onerror=null;this.src='https://placehold.co/160x200/f4cf5d/333?text=Mead';">
-                        <div class="product-details">
-                            <h3>Java Plum Melomel</h3>
-                            <p class="price">$20.00</p>
-                            <div class="product-actions">
-                                <button class="btn btn-secondary btn-quick-add">Add to Basket</button>
-                                <button class="icon-button btn-favorite" aria-label="Add to Favorites">&#x2661;</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <img src="assets/images/nf_003.png" alt="Spiced Mead" onerror="this.onerror=null;this.src='https://placehold.co/160x200/f4cf5d/333?text=Mead';">
-                        <div class="product-details">
-                            <h3>Spiced Mead</h3>
-                            <p class="price">$18.00</p>
-                            <div class="product-actions">
-                                <button class="btn btn-secondary btn-quick-add">Add to Basket</button>
-                                <button class="icon-button btn-favorite" aria-label="Add to Favorites">&#x2661;</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <img src="assets/images/nf_005.png" alt="Coffee Mead" onerror="this.onerror=null;this.src='https://placehold.co/160x200/f4cf5d/333?text=Mead';">
-                        <div class="product-details">
-                            <h3>Coffee Mead</h3>
-                            <p class="price">$22.00</p>
-                            <div class="product-actions">
-                                <button class="btn btn-secondary btn-quick-add">Add to Basket</button>
-                                <button class="icon-button btn-favorite" aria-label="Add to Favorites">&#x2661;</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <img src="assets/images/nf_006.png" alt="Sorrel Mead" onerror="this.onerror=null;this.src='https://placehold.co/160x200/f4cf5d/333?text=Mead';">
-                        <div class="product-details">
-                            <h3>Sorrel Mead</h3>
-                            <p class="price">$19.00</p>
-                            <div class="product-actions">
-                                <button class="btn btn-secondary btn-quick-add">Add to Basket</button>
-                                <button class="icon-button btn-favorite" aria-label="Add to Favorites">&#x2661;</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <img src="assets/images/nf_007.png" alt="Passion Fruit Mead" onerror="this.onerror=null;this.src='https://placehold.co/160x200/f4cf5d/333?text=Mead';">
-                        <div class="product-details">
-                            <h3>Passion Fruit Mead</h3>
-                            <p class="price">$21.00</p>
-                            <div class="product-actions">
-                                <button class="btn btn-secondary btn-quick-add">Add to Basket</button>
-                                <button class="icon-button btn-favorite" aria-label="Add to Favorites">&#x2661;</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-controls">
-                    <button class="carousel-prev" aria-label="Previous Product">&#8249;</button>
-                    <button class="carousel-next" aria-label="Next Product">&#8250;</button>
-                </div>
-            </div>
-        </section>
+  <!-- Product Showcase -->
+  <section id="products" class="product-showcase">
+    <h2>Our Collection</h2>
+    <div class="product-scroll">
+      <!-- Example bottle -->
+      <div class="product-item active">
+        <img src="placeholder-bottle.png" alt="Traditional Mead" />
+        <h3>Traditional Mead</h3>
+        <p class="tags">FLORAL / DRY</p>
+      </div>
+      <!-- Add remaining products similarly -->
+    </div>
+  </section>
 
-        <section class="our-heritage section-padding textured-bg-honeycomb">
-            <div class="container">
-                <h2 class="section-title">Our Heritage</h2>
-                <div class="heritage-grid">
-                    <div class="heritage-item">
-                        <span class="heritage-icon">諺</span> <h3>Sustainable Soul</h3>
-                        <p>Committed to bee-friendly practices and sustainable sourcing, nurturing the land that nurtures us.</p>
-                    </div>
-                    <div class="heritage-item">
-                        <span class="heritage-icon">草</span> <h3>Artisan Crafted</h3>
-                        <p>Meticulously crafted with passion, ancestral techniques, and a touch of island magic.</p>
-                    </div>
-                    <div class="heritage-item">
-                        <span class="heritage-icon">艮</span> <h3>Wildflower Essence</h3>
-                        <p>Born from the finest natural wildflower honey of Trinidad's lush Northern Range.</p>
-                    </div>
-                    <div class="heritage-item">
-                        <span class="heritage-icon">笨ｨ</span> <h3>Purely Natural</h3>
-                        <p>Pure ingredients, free from artificial additives – a true taste of nature's bounty.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Journal Teaser -->
+  <section class="journal-teaser">
+    <h2>From the Journal</h2>
+    <div class="journal-grid">
+      <div class="journal-entry placeholder"></div>
+      <div class="journal-entry placeholder"></div>
+      <div class="journal-entry placeholder"></div>
+    </div>
+    <a href="#" class="cta-button">Visit the Journal</a>
+  </section>
 
-        <section id="kairi-mead-section" class="kairi-mead section-padding">
-            <div class="kairi-mead-background-image">
-                 <img src="https://placehold.co/1200x700/2c1e00/4a3b15?text=Lush+Northern+Range" alt="Lush Northern Range providing nectar for Kairi Mead" style="display:none;" onerror="this.style.display='none';"> </div>
-            <div class="container kairi-mead-content">
-                <div class="kairi-text-content">
-                    <h2 class="section-title">KAIRI MEAD</h2>
-                    <p class="tagline">The Spirit of an Island, Bottled.</p>
-                    <p>Kairi Mead is more than a drink; it's a story whispered by the ancient forests of Trinidad. Once called 'Kairi' – Land of the Hummingbird – by the indigenous Amerindians, our island’s spirit is captured in every drop. Crafted using pure, local honey and time-honored methods unique to our shores, our mead is a tribute to the Northern Range. Here, bees dance among wildflowers, gathering nectar that becomes the golden heart of Newton-Forrest.</p>
-                    <a href="pages/our-story.html" class="btn btn-outline">Discover the Legend</a>
-                </div>
-                 <div class="kairi-image-showcase">
-                    <img src="https://placehold.co/400x500/f4cf5d/333?text=Kairi+Mead+Bottle" alt="Bottle of Kairi Mead" onerror="this.onerror=null;this.src='https://placehold.co/400x500/f0f0f0/ccc?text=Mead+Bottle';">
-                </div>
-            </div>
-        </section>
+  <!-- Membership Invitation -->
+  <section class="membership">
+    <h2>Join the Circle.</h2>
+    <div class="membership-img placeholder"></div>
+    <a href="#" class="cta-button">Become a Member</a>
+  </section>
 
-        <section class="art-science-wrapper section-padding">
-            <div class="container art-science-container">
-                <a href="#art-of-mead-detail" class="art-science-item art-item">
-                    <div class="art-science-image">
-                        <img src="https://placehold.co/600x400/a0522d/fff?text=The+Art+of+Mead" alt="Artistic representation of mead making" onerror="this.onerror=null;this.src='https://placehold.co/600x400/eee/ccc?text=Art+Visual';">
-                    </div>
-                    <div class="art-science-content">
-                        <h3 class="section-subtitle">The Art of Mead</h3>
-                        <p>Nature's canvas, tradition's brush. Explore the intuitive craft behind every bottle.</p>
-                        <span class="btn btn-link">Unveil the Craft</span>
-                    </div>
-                </a>
-                <a href="#science-of-mead-detail" class="art-science-item science-item">
-                     <div class="art-science-image">
-                        <img src="https://placehold.co/600x400/6b7d3f/fff?text=The+Science+of+Mead" alt="Scientific aspects of mead and biodiversity" onerror="this.onerror=null;this.src='https://placehold.co/600x400/eee/ccc?text=Science+Visual';">
-                    </div>
-                    <div class="art-science-content">
-                        <h3 class="section-subtitle">The Science of Mead</h3>
-                        <p>Biodiversity's gift, the Northern Range's secret. Discover the ecology in every sip.</p>
-                        <span class="btn btn-link">Explore the Ecology</span>
-                    </div>
-                </a>
-            </div>
-        </section>
+  <!-- As Featured In -->
+  <section class="as-seen-in">
+    <h2>As Featured In</h2>
+    <div class="asi-logos">
+      <img src="ASI_01.png" alt="Feature 1" />
+      <img src="ASI_02.png" alt="Feature 2" />
+      <img src="ASI_03.png" alt="Feature 3" />
+      <img src="ASI_04.png" alt="Feature 4" />
+      <img src="ASI_05.png" alt="Feature 5" />
+      <img src="ASI_06.png" alt="Feature 6" />
+    </div>
+  </section>
 
-        <section class="newsletter-signup-section section-padding textured-bg">
-            <div class="container text-center">
-                <h2 class="section-title">UNCORK THE LATEST</h2>
-                <p class="newsletter-tagline">Become a Newton-Forrest Insider. Journey with us through tales of ancient craft, new discoveries, and exclusive offerings delivered to your inbox.</p>
-                <form class="newsletter-form-main">
-                    <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
-                    <button type="submit" class="btn btn-primary">Subscribe to Our Stories</button>
-                </form>
-            </div>
-        </section>
-
-        <section class="how-to-enjoy section-padding">
-            <div class="container">
-                <h2 class="section-title">SAVOUR THE MOMENT</h2>
-                <p class="text-center enjoy-tagline">From quiet evenings to festive gatherings, discover delightful ways to pair and share Newton-Forrest Meads. <br>Tag your moments #NewtonForrestMead</p>
-                <div class="instagram-collage">
-                    <div class="collage-item">
-                        <a href="#" target="_blank" aria-label="Instagram post 1: Mead with cheese platter">
-                            <img src="https://placehold.co/400x400/f5f0e6/b08d57?text=Mead+%26+Cheese" alt="Mead with cheese platter" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eee/ccc?text=Insta+Post+1';">
-                            <div class="collage-item-overlay"><span>Golden Hour Pairing</span></div>
-                        </a>
-                    </div>
-                    <div class="collage-item">
-                         <a href="#" target="_blank" aria-label="Instagram post 2: Mead cocktail recipe">
-                            <img src="https://placehold.co/400x400/b08d57/f5f0e6?text=Mead+Cocktail" alt="Mead cocktail" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eee/ccc?text=Insta+Post+2';">
-                            <div class="collage-item-overlay"><span>Spiced Mead Mule</span></div>
-                        </a>
-                    </div>
-                    <div class="collage-item">
-                        <a href="#" target="_blank" aria-label="Instagram post 3: Mead by the fireside">
-                            <img src="https://placehold.co/400x400/a0522d/f5f0e6?text=Cosy+Mead+Night" alt="Mead by the fireside" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eee/ccc?text=Insta+Post+3';">
-                            <div class="collage-item-overlay"><span>Fireside Sips</span></div>
-                        </a>
-                    </div>
-                    <div class="collage-item">
-                         <a href="#" target="_blank" aria-label="Instagram post 4: Mead with dessert">
-                            <img src="https://placehold.co/400x400/6b7d3f/f5f0e6?text=Mead+%26+Dessert" alt="Mead with dessert" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eee/ccc?text=Insta+Post+4';">
-                            <div class="collage-item-overlay"><span>Sweet Endings</span></div>
-                        </a>
-                    </div>
-                     <div class="collage-item">
-                        <a href="#" target="_blank" aria-label="Instagram post 5: Outdoor mead enjoyment">
-                            <img src="https://placehold.co/400x400/f4cf5d/333?text=Mead+Outdoors" alt="Enjoying mead outdoors" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eee/ccc?text=Insta+Post+5';">
-                            <div class="collage-item-overlay"><span>Adventure Pours</span></div>
-                        </a>
-                    </div>
-                    <div class="collage-item">
-                         <a href="#" target="_blank" aria-label="Instagram post 6: Mead tasting event">
-                            <img src="https://placehold.co/400x400/332E27/FFD966?text=Mead+Tasting" alt="Mead tasting event" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eee/ccc?text=Insta+Post+6';">
-                            <div class="collage-item-overlay"><span>Gather & Taste</span></div>
-                        </a>
-                    </div>
-                </div>
-                <div class="text-center" style="margin-top: 2em;">
-                     <a href="https://instagram.com" class="btn btn-primary" target="_blank">Follow Our Journey on Instagram</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="as-seen-in section-padding">
-            <div class="container">
-                <h2 class="section-title">As Seen In</h2>
-                <div class="logos-grid">
-                    <img src="assets/images/ASI_01.png" alt="Publication Logo 1" onerror="this.onerror=null;this.src='https://placehold.co/100x50/f0f0f0/ccc?text=Logo';">
-                    <img src="assets/images/ASI_02.png" alt="Publication Logo 2" onerror="this.onerror=null;this.src='https://placehold.co/100x50/f0f0f0/ccc?text=Logo';">
-                    <img src="assets/images/ASI_03.png" alt="Publication Logo 3" onerror="this.onerror=null;this.src='https://placehold.co/100x50/f0f0f0/ccc?text=Logo';">
-                    <img src="assets/images/ASI_04.png" alt="Publication Logo 4" onerror="this.onerror=null;this.src='https://placehold.co/100x50/f0f0f0/ccc?text=Logo';">
-                    <img src="assets/images/ASI_05.png" alt="Publication Logo 5" onerror="this.onerror=null;this.src='https://placehold.co/100x50/f0f0f0/ccc?text=Logo';">
-                    <img src="assets/images/ASI_06.png" alt="Publication Logo 6" onerror="this.onerror=null;this.src='https://placehold.co/100x50/f0f0f0/ccc?text=Logo';">
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer section-padding">
-        <div class="container footer-grid">
-            <div class="footer-column">
-                <h4>Main Menu</h4>
-                <ul>
-                    <li><a href="pages/shop.html">Shop</a></li>
-                    <li><a href="pages/heritage.html">Heritage</a></li>
-                    <li><a href="pages/stockists.html">Stockists</a></li>
-                    <li><a href="pages/blog.html">Blog</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Customer Care</h4>
-                <ul>
-                    <li><a href="#faq">FAQs</a></li>
-                    <li><a href="#shipping">Shipping</a></li>
-                    <li><a href="#returns">Returns</a></li>
-                </ul>
-            </div>
-            <div class="footer-column"> <h4>Our Meadery</h4>
-                <ul>
-                    <li><a href="pages/our-story.html">Our Story</a></li>
-                    <li><a href="pages/sustainability.html">Sustainability</a></li>
-                    <li><a href="pages/visit-us.html">Visit Us (By Appointment)</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Connect With Us</h4>
-                <p>Follow our journey and share your mead moments!</p>
-                <div class="social-icons">
-                    <a href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2.04C6.48 2.04 2 6.48 2 12s4.48 9.96 10 9.96c5.52 0 10-4.48 10-9.96S17.52 2.04 12 2.04zm4.47 7.53h-1.76c-.36 0-.67.21-.67.67v1.09h2.43l-.31 2.05h-2.12v6.11H10.9v-6.11H9.04v-2.05h1.86V9.02c0-1.21.59-2.27 2.27-2.27h1.87v2.32z"/></svg></a>
-                    <a href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8A3.6 3.6 0 0 0 20 16.4V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
-                    <a href="#" aria-label="Threads" title="Threads"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path fill="currentColor" d="M160 80H96a8 8 0 0 0-8 8v32a8 8 0 0 0 16 0v-24h48v104a8 8 0 0 0 16 0V88a8 8 0 0 0-8-8M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88"/></svg></a>
-                    <a href="#" aria-label="YouTube" title="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path fill="currentColor" d="M244.42 74.79C242.3 67.53 236.63 62 229.16 60c-20.44-5.2-101.16-5.2-101.16-5.2s-80.72 0-101.16 5.2C19.37 62 13.7 67.53 11.58 74.79C6.38 95.23 6.38 128 6.38 128s0 32.77 5.2 53.21c2.12 7.26 7.79 12.79 15.26 14.79c20.44 5.2 101.16 5.2 101.16 5.2s80.72 0 101.16-5.2c7.47-2 13.14-7.53 15.26-14.79c5.2-20.44 5.2-53.21 5.2-53.21s0-32.77-5.2-53.21M102.38 160V96l56 32Z"/></svg></a>
-                </div>
-            </div>
-        </div>
-        <div class="container legal-footer">
-            <a href="pages/terms.html">Terms and Conditions</a> |
-            <a href="pages/privacy.html">Privacy Policy</a> |
-            <a href="pages/cookies.html">Cookie Policy</a> |
-            <a href="pages/environmental-policy.html">Env. Policy</a>
-            <p>&copy; <span id="copyright-year">2025</span> Newton-Forrest Meadery. All Rights Reserved.</p>
-        </div>
-    </footer>
+  <!-- Footer -->
+  <footer class="footer">
+    <img src="logo-gold.png" alt="Newton-Forrest Apiaries Logo" class="footer-logo" />
+    <nav class="footer-nav">
+      <a href="#">About</a>
+      <a href="#">Products</a>
+      <a href="#">Journal</a>
+      <a href="#">Membership</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="social-icons">
+      <a href="#"><img src="icon-instagram.svg" alt="Instagram" /></a>
+      <a href="#"><img src="icon-pinterest.svg" alt="Pinterest" /></a>
+    </div>
+    <small>&copy; Newton-Forrest Apiaries. All rights reserved.</small>
+  </footer>
     <script src="script.js"></script>
 </body>
 </html>
