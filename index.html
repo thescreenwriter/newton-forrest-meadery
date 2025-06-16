@@ -324,11 +324,50 @@
         </div>
     </footer>
 
-    <script>
+   <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // ...existing nav and carousel code...
+    // MOBILE NAV LOGIC
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNavContainer = document.getElementById('mobile-nav-container');
+    const mobileNav = document.getElementById('mobile-nav');
+    const navLinks = mobileNav ? mobileNav.querySelectorAll('.nav-link') : [];
+    function closeMenu() {
+        mobileNav.classList.add('-translate-x-full');
+        mobileNavContainer.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+    if (menuToggle && mobileNavContainer && mobileNav) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileNavContainer.classList.toggle('hidden');
+            mobileNav.classList.toggle('-translate-x-full');
+            document.body.style.overflow = mobileNavContainer.classList.contains('hidden') ? '' : 'hidden';
+        });
+        mobileNavContainer.addEventListener('click', (e) => e.target === mobileNavContainer && closeMenu());
+        navLinks.forEach(link => link.addEventListener('click', closeMenu));
+    }
 
-    // Footer Accordion Logic
+    // PRODUCT CAROUSEL
+    if (window.Swiper) {
+        new Swiper('.product-carousel', {
+            loop: true,
+            grabCursor: true,
+            centeredSlides: true,
+            breakpoints: {
+                320: { slidesPerView: 1.3, spaceBetween: 20 },
+                768: { slidesPerView: 3, spaceBetween: 30 },
+            }
+        });
+
+        // INGREDIENTS CAROUSEL
+        new Swiper('.ingredients-carousel', {
+            loop: true,
+            grabCursor: true,
+            autoplay: { delay: 5000, disableOnInteraction: false }
+        });
+    }
+
+    // FOOTER ACCORDION LOGIC (your improved version)
     function setupFooterAccordion() {
         const toggles = document.querySelectorAll('.footer-accordion-toggle');
         const contents = document.querySelectorAll('.footer-accordion-content');
@@ -347,7 +386,7 @@ document.addEventListener('DOMContentLoaded', function () {
             newToggles.forEach((toggle, idx) => {
                 const content = toggle.nextElementSibling;
                 const icon = toggle.querySelector('span:last-child');
-                // Collapse all by default (optional: expand first by default)
+                // Collapse all by default
                 content.style.maxHeight = null;
                 if (icon) icon.textContent = '+';
 
