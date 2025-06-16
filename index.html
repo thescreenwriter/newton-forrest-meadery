@@ -19,8 +19,8 @@
 
     <!-- Custom Styles -->
     <style>
-        /* FIX: Prevents horizontal scroll/white space on the right */
-        body {
+        html, body {
+        overflow-x: hidden !important;
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: #1a1a1a;
@@ -85,7 +85,7 @@
         }
     </style>
 </head>
-<body class="bg-white">
+<body class="bg-white overflow-x-hidden">
 
     <!-- HEADER -->
     <header class="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
@@ -131,7 +131,7 @@
         </nav>
     </div>
 
-    <main class="pt-20">
+    <main class="pt-20 overflow-x-hidden">
         
         <!-- Section 1: HERO (Black Theme) -->
         <section id="home" class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-white text-center bg-black overflow-hidden">
@@ -325,59 +325,70 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Mobile Nav Logic
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileNavContainer = document.getElementById('mobile-nav-container');
-            const mobileNav = document.getElementById('mobile-nav');
-            const navLinks = mobileNav.querySelectorAll('.nav-link');
-            function closeMenu() {
-                mobileNav.classList.add('-translate-x-full');
-                mobileNavContainer.classList.add('hidden');
-                document.body.style.overflow = '';
-            }
-            menuToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                mobileNavContainer.classList.toggle('hidden');
-                mobileNav.classList.toggle('-translate-x-full');
-                document.body.style.overflow = mobileNavContainer.classList.contains('hidden') ? '' : 'hidden';
-            });
-            mobileNavContainer.addEventListener('click', (e) => e.target === mobileNavContainer && closeMenu());
-            navLinks.forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('DOMContentLoaded', function () {
+    // ...existing nav and carousel code...
 
-            // Product Carousel
-            new Swiper('.product-carousel', {
-                loop: true, grabCursor: true, centeredSlides: true,
-                breakpoints: {
-                    320: { slidesPerView: 1.3, spaceBetween: 20 },
-                    768: { slidesPerView: 3, spaceBetween: 30 },
-                }
-            });
+    // Footer Accordion Logic
+    function setupFooterAccordion() {
+        const toggles = document.querySelectorAll('.footer-accordion-toggle');
+        const contents = document.querySelectorAll('.footer-accordion-content');
 
-            // Ingredients Carousel
-            new Swiper('.ingredients-carousel', {
-                 loop: true,
-                 grabCursor: true,
-                 autoplay: { delay: 5000, disableOnInteraction: false, },
-            });
+        // Remove all previous event listeners before re-adding (by cloning)
+        toggles.forEach(toggle => {
+            const newToggle = toggle.cloneNode(true);
+            toggle.parentNode.replaceChild(newToggle, toggle);
+        });
 
-            // FIX: Refined Footer Accordion script
-            if (window.innerWidth < 768) {
-                document.querySelectorAll('.footer-accordion-toggle').forEach(toggle => {
-                    toggle.addEventListener('click', () => {
-                        const content = toggle.nextElementSibling;
-                        const icon = toggle.querySelector('span:last-child');
-                        if (content.style.maxHeight) {
-                            content.style.maxHeight = null;
-                            icon.textContent = '+';
-                        } else {
-                            content.style.maxHeight = content.scrollHeight + "px";
-                            icon.textContent = '-';
+        // Re-fetch toggles after replacement
+        const newToggles = document.querySelectorAll('.footer-accordion-toggle');
+
+        if (window.innerWidth < 768) {
+            // Accordion/collapsible for mobile
+            newToggles.forEach((toggle, idx) => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('span:last-child');
+                // Collapse all by default (optional: expand first by default)
+                content.style.maxHeight = null;
+                if (icon) icon.textContent = '+';
+
+                toggle.addEventListener('click', function() {
+                    const isOpen = content.style.maxHeight;
+                    // Collapse all others
+                    contents.forEach((c, i) => {
+                        if (i !== idx) {
+                            c.style.maxHeight = null;
+                            const otherIcon = newToggles[i].querySelector('span:last-child');
+                            if (otherIcon) otherIcon.textContent = '+';
                         }
                     });
+                    // Toggle current
+                    if (isOpen) {
+                        content.style.maxHeight = null;
+                        if (icon) icon.textContent = '+';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        if (icon) icon.textContent = '-';
+                    }
                 });
-            }
-        });
-    </script>
+            });
+        } else {
+            // Always open on desktop
+            contents.forEach(content => {
+                content.style.maxHeight = '1000px';
+                content.style.overflow = 'visible';
+            });
+            newToggles.forEach(toggle => {
+                const icon = toggle.querySelector('span:last-child');
+                if (icon) icon.textContent = '';
+            });
+        }
+    }
+
+    // Initialize on load
+    setupFooterAccordion();
+    // Re-initialize on window resize (for responsive)
+    window.addEventListener('resize', setupFooterAccordion);
+});
+</script>
 </body>
 </html>
