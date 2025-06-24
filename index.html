@@ -103,29 +103,28 @@
 
     <!-- HEADER -->
     <header class="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
-        <div class="container mx-auto px-6 h-[72px] flex justify-between items-center relative">
-            <!-- Left Nav -->
-            <nav class="hidden lg:flex items-center justify-end flex-1 space-x-8 text-sm uppercase tracking-wider">
-                <a href="#story" class="hover:text-gold-accent">Our Story</a>
-                <a href="#products" class="hover:text-gold-accent">Our Range</a>
-                <a href="stockists.html" class="hover:text-gold-accent">Stockists</a>
-            </nav>
-            
-            <!-- Centered Logo -->
-            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <a href="#" aria-label="Newton-Forrest Homepage" class="logo-container">
-                    <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/Logo-bee.png" alt="Newton-Forrest Logo" class="h-10 md:h-12 w-auto logo-main">
-                    <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/Logo-words.png" alt="Newton-Forrest Hover Logo" class="h-10 md:h-12 w-auto logo-hover">
-                </a>
-            </div>
-
-            <!-- Right Nav -->
-            <nav class="hidden lg:flex items-center justify-start flex-1 space-x-8 text-sm uppercase tracking-wider">
-                <a href="#commitment" class="hover:text-gold-accent">Commitment</a>
-                <a href="#journal" class="hover:text-gold-accent">Journal</a>
-                <a href="#membership" class="hover:text-gold-accent">Membership</a>
-            </nav>
-
+  <div class="container mx-auto px-6 h-[72px] flex items-center">
+    <!-- Left Nav -->
+    <nav class="hidden lg:flex flex-1 justify-end items-center space-x-8 text-sm uppercase tracking-wider">
+      <a href="#story" class="hover:text-gold-accent">Our Story</a>
+      <a href="#products" class="hover:text-gold-accent">Our Range</a>
+      <a href="stockists.html" class="hover:text-gold-accent">Stockists</a>
+    </nav>
+    <!-- Logo Centered -->
+    <div class="flex-shrink-0 flex items-center justify-center w-[220px] h-12">
+      <a href="#" aria-label="Newton-Forrest Homepage" class="relative w-full h-full flex items-center justify-center group">
+        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/Logo-bee.png" alt="Newton-Forrest Logo"
+             class="absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/Logo-words.png" alt="Newton-Forrest Hover Logo"
+             class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      </a>
+    </div>
+    <!-- Right Nav -->
+    <nav class="hidden lg:flex flex-1 justify-start items-center space-x-8 text-sm uppercase tracking-wider">
+      <a href="#commitment" class="hover:text-gold-accent">Commitment</a>
+      <a href="#journal" class="hover:text-gold-accent">Journal</a>
+      <a href="#membership" class="hover:text-gold-accent">Membership</a>
+    </nav>
             <!-- Mobile Menu Toggle -->
             <button id="menu-toggle" class="lg:hidden z-10 p-2 -ml-2">
                 <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
