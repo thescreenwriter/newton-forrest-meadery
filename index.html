@@ -52,10 +52,6 @@
         }
 
         /* Logo Hover Effect */
-        .logo-container {
-            position: relative;
-            display: inline-block; /* Ensures container wraps the logo */
-        }
         .logo-container .logo-hover {
             position: absolute;
             top: 0;
@@ -103,36 +99,39 @@
 
     <!-- HEADER -->
     <header class="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
-  <div class="flex-shrink-0 flex items-center justify-center w-[140px] h-8 md:w-[220px] md:h-12">>
-    <!-- Left Nav -->
-    <nav class="hidden lg:flex flex-1 justify-end items-center space-x-8 text-sm uppercase tracking-wider">
-      <a href="#story" class="hover:text-gold-accent">Our Story</a>
-      <a href="#products" class="hover:text-gold-accent">Our Range</a>
-      <a href="stockists.html" class="hover:text-gold-accent">Stockists</a>
-    </nav>
-    <!-- Logo Centered -->
-    <div class="flex-shrink-0 flex items-center justify-center w-[220px] h-12">
-      <a href="#" aria-label="Newton-Forrest Homepage" class="relative w-full h-full flex items-center justify-center group">
-        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/Logo-bee.png" alt="Newton-Forrest Logo"
-             class="absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/Logo-words.png" alt="Newton-Forrest Hover Logo"
-             class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      </a>
-    </div>
-    <!-- Right Nav -->
-    <nav class="hidden lg:flex flex-1 justify-start items-center space-x-8 text-sm uppercase tracking-wider">
-      <a href="#commitment" class="hover:text-gold-accent">Commitment</a>
-      <a href="#journal" class="hover:text-gold-accent">Journal</a>
-      <a href="#membership" class="hover:text-gold-accent">Membership</a>
-    </nav>
-            <!-- Mobile Menu Toggle -->
-            <button id="menu-toggle" class="lg:hidden z-10 p-2 -ml-2">
-                <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
+        <div class="container mx-auto px-6 h-[72px] flex items-center justify-between">
+            <!-- Mobile Left: Hamburger -->
+            <div class="lg:hidden flex-1 flex justify-start">
+                <button id="menu-toggle" class="p-2 -ml-2">
+                    <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
             
-            <!-- Mobile Cart Icon -->
-            <div class="lg:hidden z-10">
-                 <a href="stockists.html" aria-label="Where to buy">
+            <!-- Desktop Left Nav -->
+            <nav class="hidden lg:flex flex-1 justify-end items-center space-x-8 text-sm uppercase tracking-wider">
+                <a href="#story" class="hover:text-gold-accent">Our Story</a>
+                <a href="#products" class="hover:text-gold-accent">Our Range</a>
+                <a href="stockists.html" class="hover:text-gold-accent">Stockists</a>
+            </nav>
+
+            <!-- Centered Logo -->
+            <div class="h-full flex items-center justify-center lg:px-8">
+                 <a href="#" aria-label="Newton-Forrest Homepage" class="relative h-10 w-28 md:h-12 md:w-40 logo-container">
+                    <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/Logo-bee.png" alt="Newton-Forrest Logo" class="absolute inset-0 w-full h-full object-contain logo-main">
+                    <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/Logo-words.png" alt="Newton-Forrest Hover Logo" class="absolute inset-0 w-full h-full object-contain logo-hover">
+                </a>
+            </div>
+            
+            <!-- Desktop Right Nav -->
+            <nav class="hidden lg:flex flex-1 justify-start items-center space-x-8 text-sm uppercase tracking-wider">
+                <a href="#commitment" class="hover:text-gold-accent">Commitment</a>
+                <a href="#journal" class="hover:text-gold-accent">Journal</a>
+                <a href="#membership" class="hover:text-gold-accent">Membership</a>
+            </nav>
+            
+            <!-- Mobile Right: Cart -->
+            <div class="lg:hidden flex-1 flex justify-end">
+                 <a href="stockists.html" aria-label="Where to buy" class="p-2 -mr-2">
                     <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                 </a>
             </div>
@@ -157,25 +156,26 @@
     <main class="pt-[72px] overflow-x-hidden">
         
         <!-- 1: HERO (Black Theme with Video) -->
-        <section id="home" class="relative h-[calc(100vh-72px)] min-h-[500px] flex items-center justify-center text-white text-center bg-black overflow-hidden">
+        <section id="home" class="relative h-[calc(100vh-72px)] min-h-[500px] flex items-center bg-black text-white">
             <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
             <video autoplay loop muted playsinline class="absolute z-0 w-auto min-w-full min-h-full max-w-none">
                 <source src="https://github.com/thescreenwriter/newton-forrest-meadery/raw/refs/heads/main/images/hero-background.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div class="relative z-20 p-6">
-                <h1 class="font-title text-4xl md:text-6xl lg:text-7xl leading-tight">CRAFT MEAD</h1>
-                <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">made from certified Northern Range wildflower honey</p>
-                <a href="#products" class="btn btn-light mt-8">Explore Our Range</a>
+            <div class="relative z-20 container mx-auto px-6">
+                <div class="max-w-2xl text-left">
+                    <h1 class="font-title text-4xl md:text-6xl lg:text-7xl leading-tight">Craft Mead made from certified Northern Range Wildflower Honey</h1>
+                    <a href="#products" class="btn btn-light mt-8">Explore Our Range</a>
+                </div>
             </div>
         </section>
 
         <!-- 2: OUR STORY (Black Theme) -->
         <section id="story" class="bg-black text-white">
-            <div class="container mx-auto px-6 py-20 md:py-32">
-                <div class="max-w-3xl mx-auto text-center">
-                    <h2 class="font-title text-3xl md:text-4xl">OUR STORY</h2>
-                    <p class="mt-6 text-gray-300 leading-relaxed">
+            <div class="container mx-auto px-6 py-16 md:py-24">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="font-title text-3xl md:text-4xl text-center">OUR STORY</h2>
+                    <p class="mt-6 text-gray-300 leading-relaxed text-left">
                         It all begins with the honey. For generations, our family has kept bees in the high slopes of Trinidad's Northern Range, a partnership with the land that yields a honey with the wild taste of a protected ecosystem. We believe the best mead is a conversation between this extraordinary ingredient and time, and our family's story is deeply tied to that simple tradition.
                     </p>
                 </div>
@@ -183,11 +183,11 @@
         </section>
 
         <!-- 3: OUR RANGE (White Theme) -->
-        <section id="products" class="text-center bg-white">
-            <div class="container mx-auto px-6 py-20 md:py-32">
-                 <h2 class="font-title text-3xl md:text-4xl">OUR RANGE</h2>
-                 <p class="mt-4 max-w-2xl mx-auto text-gray-600">Every mead we create begins with the same extraordinary Northern Range honey, but from there, the story changes with each bottle. You can explore the pure, traditional taste of the mountains in our classic meads, or discover how that same honey pairs with fresh island fruits and Caribbean spices in our melomels and metheglins. Each offers a different way to experience the flavor of our home.</p>
-                 <div class="mt-16 product-carousel swiper-container">
+        <section id="products" class="bg-white">
+            <div class="container mx-auto px-6 py-16 md:py-24">
+                 <h2 class="font-title text-3xl md:text-4xl text-center">OUR RANGE</h2>
+                 <p class="mt-4 max-w-3xl mx-auto text-gray-600 text-left">Every mead we create begins with certified Northern Range wildflower honey, but from there, the story changes with each bottle. You can explore the pure, traditional taste of the mountains in our classic meads, or discover how that same honey pairs with fresh island fruits and Caribbean spices in our melomels and metheglins.</p>
+                 <div class="mt-12 product-carousel swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide flex flex-col items-center"><img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/product-01.png" alt="Product 1" class="h-80 object-contain mb-4"><h3 class="font-title text-2xl">Traditional Mead</h3></div>
                         <div class="swiper-slide flex flex-col items-center"><img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/product-02.png" alt="Product 2" class="h-80 object-contain mb-4"><h3 class="font-title text-2xl">Java Plum Melomel</h3></div>
@@ -196,6 +196,9 @@
                         <div class="swiper-slide flex flex-col items-center"><img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/product-05.png" alt="Product 5" class="h-80 object-contain mb-4"><h3 class="font-title text-2xl">Passion Fruit Melomel</h3></div>
                         <div class="swiper-slide flex flex-col items-center"><img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/product-06.png" alt="Product 6" class="h-80 object-contain mb-4"><h3 class="font-title text-2xl">Acerola Melomel</h3></div>
                         <div class="swiper-slide flex flex-col items-center"><img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/product-07.png" alt="Product 7" class="h-80 object-contain mb-4"><h3 class="font-title text-2xl">Pineapple Melomel</h3></div>
+                        <div class="swiper-slide flex flex-col items-center"><img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/product-08.png" alt="Ginger Metheglin" class="h-80 object-contain mb-4"><h3 class="font-title text-2xl">Ginger Metheglin</h3></div>
+                        <div class="swiper-slide flex flex-col items-center"><img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/product-09.png" alt="Pumpkin Spice Metheglin" class="h-80 object-contain mb-4"><h3 class="font-title text-2xl">Pumpkin Spice Metheglin</h3></div>
+                        <div class="swiper-slide flex flex-col items-center"><img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/product-10.png" alt="Aged Reserve" class="h-80 object-contain mb-4"><h3 class="font-title text-2xl">Aged Reserve</h3></div>
                     </div>
                 </div>
             </div>
@@ -203,55 +206,55 @@
         
         <!-- 4: OUR COMMITMENT (Black Theme) -->
         <section id="commitment" class="bg-black text-white">
-            <div class="container mx-auto px-6 py-20 md:py-24 text-center">
-                 <h2 class="font-title text-3xl md:text-4xl">OUR COMMITMENT TO TRANSPARENCY</h2>
-                 <p class="mt-4 max-w-3xl mx-auto text-gray-300">We believe you have the right to know exactly what's in your mead. Our promise of quality is not just a story. It is verifiable on the blockchain. We use this immutable ledger to secure a digital record of each bottle's journey: from the specific hives it came from, through our meadery, to you. It is a modern maker's mark, our guarantee of provenance.</p>
+            <div class="container mx-auto px-6 py-16 md:py-24">
+                 <h2 class="font-title text-3xl md:text-4xl text-center">OUR COMMITMENT</h2>
+                 <p class="mt-4 max-w-3xl mx-auto text-gray-300 text-left">Our promise of quality is not mere hype. It is verifiable on the blockchain. We use this immutable ledger to secure a digital record of each bottle's journey: from the specific hive, through our meadery, to you. It is a modern maker's mark, our guarantee of provenance.</p>
             </div>
         </section>
         
         <!-- 5: INGREDIENTS CAROUSEL (White Theme) -->
         <section id="ingredients" class="bg-white text-black">
-            <div class="container mx-auto px-6 py-20 md:py-24">
+            <div class="container mx-auto px-6 py-16 md:py-24">
                 <div class="ingredients-carousel swiper-container">
                     <div class="swiper-wrapper">
-                        <!-- Slide 1 -->
+                        <!-- Slide 1: The Honey -->
                         <div class="swiper-slide">
                             <div class="grid md:grid-cols-2 gap-12 items-center">
                                 <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/commit-1.jpg" alt="A field of wildflowers." class="rounded-lg shadow-xl">
-                                <div>
+                                <div class="text-left">
                                     <h3 class="font-title text-3xl text-black">The Honey</h3>
-                                    <p class="mt-4 text-gray-600">The soul of our mead. Our unprocessed honey comes from bees that feed on the diverse wildflowers of the Northern Range, creating complex flavors impossible to replicate.</p>
-                                    <div class="mt-8 flex items-center justify-center md:justify-start gap-8">
-                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/37d6d7406cfb9970bdd0d91b4744a9894f1ff173/images/cert-logo-GI.svg" alt="Partner Logo 1" class="h-8 grayscale opacity-75">
-                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/37d6d7406cfb9970bdd0d91b4744a9894f1ff173/images/cert-logo-true-source.svg" alt="Partner Logo 2" class="h-8 grayscale opacity-75">
+                                    <p class="mt-4 text-gray-600">The soul of our mead is the honey. It comes from Trinidad’s Northern Range, one of the few places left in the world that can produce a harvest free of medications and synthetic antibiotics. Our bees forage on diverse wildflowers, creating a raw, complex flavor impossible to replicate.</p>
+                                    <div class="mt-8 flex items-center justify-start gap-8">
+                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/37d6d7406cfb9970bdd0d91b4744a9894f1ff173/images/cert-logo-GI.svg" alt="GI Certified Logo" class="h-10">
+                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/e569c81f820379481b5d8dfc27f9ddafd5fddefc/images/cert-logo-true-source.svg" alt="True Source Certified Logo" class="h-10">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 2 -->
+                        <!-- Slide 2: The Fruits -->
                         <div class="swiper-slide">
                              <div class="grid md:grid-cols-2 gap-12 items-center">
                                 <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/commit-2.jpg" alt="A bowl of fresh fruits." class="rounded-lg shadow-xl">
-                                <div>
+                                <div class="text-left">
                                     <h3 class="font-title text-3xl text-black">The Fruits</h3>
-                                    <p class="mt-4 text-gray-600">For our melomels and metheglins, we source our fruits and spices from local farms, ensuring the best flavour and supporting our community.</p>
-                                    <div class="mt-8 flex items-center justify-center md:justify-start gap-8">
-                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/37d6d7406cfb9970bdd0d91b4744a9894f1ff173/images/cert-logo-regen-agri.svg" alt="Partner Logo 1" class="h-8 grayscale opacity-75">
-                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/37d6d7406cfb9970bdd0d91b4744a9894f1ff173/images/cert-logo-eu-organic.svg" alt="Partner Logo 2" class="h-8 grayscale opacity-75">
+                                    <p class="mt-4 text-gray-600">It continues with our ingredients. For our melomels and metheglins, we source our fruits and spices from Regenerative Organic Certified® local farms, ensuring the best flavour and supporting our community.</p>
+                                    <div class="mt-8 flex items-center justify-start gap-8">
+                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/37d6d7406cfb9970bdd0d91b4744a9894f1ff173/images/cert-logo-regen-agri.svg" alt="Regenerative Organic Certified Logo" class="h-10">
+                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/37d6d7406cfb9970bdd0d91b4744a9894f1ff173/images/cert-logo-eu-organic.svg" alt="EU Organic Logo" class="h-10">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 3 -->
+                        <!-- Slide 3: The Packaging -->
                         <div class="swiper-slide">
                             <div class="grid md:grid-cols-2 gap-12 items-center">
                                 <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/commit-3.jpg" alt="Recycled glass bottles." class="rounded-lg shadow-xl">
-                                <div>
+                                <div class="text-left">
                                     <h3 class="font-title text-3xl text-black">The Packaging</h3>
-                                    <p class="mt-4 text-gray-600">Our bottles, crafted from 100% post-consumer recycled glass, embrace a wabi-sabi aesthetic. We use cork-based closures, natural beeswax seals, and compostable labels printed with algae-based inks.</p>
-                                    <div class="mt-8 flex items-center justify-center md:justify-start gap-8">
-                                        <img src="https://sempergreenwall.com/wp-content/uploads/2020/09/cradle-to-cradle-certified-vector-logo-wit2.png" alt="Partner Logo 1" class="h-8 grayscale opacity-75">
-                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/37d6d7406cfb9970bdd0d91b4744a9894f1ff173/images/cert-logo-proudly-tt.svg" alt="Partner Logo 2" class="h-8 grayscale opacity-75">
+                                    <p class="mt-4 text-gray-600">It ends with the bottle. We use recycled glass, plant-based closures, and compostable labels printed with algae-based inks. A mead this honest deserves a bottle to match.</p>
+                                    <div class="mt-8 flex items-center justify-start gap-8">
+                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/b8e82d970cab89d5bc37cc6dc4fa381ed38d826a/images/cert-logo-cradle.svg" alt="Cradle to Cradle Certified Logo" class="h-10">
+                                        <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/b8e82d970cab89d5bc37cc6dc4fa381ed38d826a/images/cert-logo-b-corp.svg" alt="B-Corp Certified Logo" class="h-10">
                                     </div>
                                 </div>
                             </div>
@@ -263,24 +266,23 @@
 
         <!-- 6: PRESS/FEATURED (Black Theme) -->
         <section id="press" class="bg-black">
-            <div class="container mx-auto px-6 py-16 text-center">
+            <div class="container mx-auto px-6 py-12 text-center">
                 <h4 class="text-sm uppercase tracking-widest text-gray-400">As featured in</h4>
-                <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-y-8 gap-x-4 items-center opacity-60 invert-[.85]">
+                <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 items-center opacity-60 invert-[.85]">
                     <img src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/175705f375403c15387b3020f09821f17efa69aa/images/waitrose-weekend.svg" alt="Waitrose Weekend" class="mx-auto h-5 grayscale hover:grayscale-0 transition-all duration-300">
                     <img src="https://i0.wp.com/elkcove.com/assets/2021/02/decanter.png?fit=2243%2C488&ssl=1" alt="Decanter" class="mx-auto h-8 grayscale hover:grayscale-0 transition-all duration-300">
                     <img src="https://upload.wikimedia.org/wikipedia/de/thumb/d/d9/Essen_und_trinken.svg/1280px-Essen_und_trinken.svg.png" alt="essen und trinken" class="mx-auto h-10 grayscale hover:grayscale-0 transition-all duration-300">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Eater_logo.svg" alt="Eater" class="mx-auto h-8 grayscale hover:grayscale-0 transition-all duration-300">
-                    <img src="https://images.squarespace-cdn.com/content/v1/61294fb35a1be65246bbeace/1632498337460-49M1JK4KPZQC0A76LNBE/imbibe-logo.png?format=1000w" alt="Imbibe" class="mx-auto h-12 grayscale hover:grayscale-0 transition-all duration-300">
                 </div>
             </div>
         </section>
 
         <!-- 7: JOURNAL (White Theme) -->
         <section id="journal" class="bg-white">
-             <div class="container mx-auto px-6 py-20 md:py-32 text-center">
-                <h2 class="font-title text-3xl md:text-4xl">FROM THE JOURNAL</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-gray-600">A collection of stories, research, and moments from our meadery.</p>
-                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+             <div class="container mx-auto px-6 py-16 md:py-24">
+                <h2 class="font-title text-3xl md:text-4xl text-center">FROM THE JOURNAL</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-600 text-center">From our corner of the Northern Range, here's a collection of stories, research, and moments from our meadery.</p>
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="grid gap-4">
                         <div><img class="h-auto max-w-full rounded-lg object-cover" src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/journal-1.jpeg" alt="A close-up of a honeybee on a flower."></div>
                         <div><img class="h-auto max-w-full rounded-lg object-cover" src="https://raw.githubusercontent.com/thescreenwriter/newton-forrest-meadery/refs/heads/main/images/journal-2.png" alt="A minimalist shot of a teapot and honey pot."></div>
@@ -303,9 +305,9 @@
 
         <!-- 8: SIGNUP (Black Theme) -->
         <section id="membership" class="bg-black text-white">
-             <div class="container mx-auto px-6 py-20 md:py-24 text-center">
+             <div class="container mx-auto px-6 py-16 md:py-24 text-center">
                  <h2 class="font-title text-3xl md:text-4xl uppercase tracking-widest">SIGN-UP TO THE HIVE</h2>
-                 <p class="mt-4 max-w-2xl mx-auto text-gray-300">Join now and receive a 10% sign-up reward to spend on your next purchase online, or at any one of our exclusive stockists.</p>
+                 <p class="mt-4 max-w-2xl mx-auto text-gray-300">Be the first to hear about new vintages and receive occasional dispatches from the meadery. For prospective partners, this is the best way to begin a conversation.</p>
                  <form action="#" method="post" class="mt-8 max-w-md mx-auto">
                     <div class="relative">
                         <input type="email" name="EMAIL" placeholder="Enter your email" required class="w-full px-4 py-3 pr-16 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-gold-accent">
@@ -324,7 +326,7 @@
 
     <!-- 9: FOOTER (White Theme) -->
     <footer class="bg-white text-black font-body">
-        <div class="container mx-auto px-6 py-16">
+        <div class="container mx-auto px-6 py-12">
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
                     <h4 class="footer-accordion-toggle font-semibold uppercase tracking-wider mb-4 flex justify-between items-center cursor-pointer md:cursor-default"><span>Connect</span> <span class="md:hidden text-xl font-light">+</span></h4>
@@ -360,7 +362,7 @@
                 </div>
             </div>
 
-            <div class="mt-16 pt-8 border-t border-gray-200 text-center text-xs text-gray-500">
+            <div class="mt-12 pt-8 border-t border-gray-200 text-center text-xs text-gray-500">
                 <p>&copy; 2025 Newton-Forrest Meadery. All rights reserved.</p>
                 <p class="mt-2">Company Reg: 123456789 | VAT No: GB123456789</p>
             </div>
@@ -401,6 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
             spaceBetween: 20,
             breakpoints: {
                 768: { slidesPerView: 3, spaceBetween: 30 },
+                1024: { slidesPerView: 4, spaceBetween: 40}
             }
         });
 
@@ -419,28 +422,36 @@ document.addEventListener('DOMContentLoaded', function () {
             toggle.addEventListener('click', function() {
                 if (window.innerWidth < 768) {
                     const content = this.nextElementSibling;
-                    const isVisible = content.style.maxHeight;
-                    // Close all accordions
-                    document.querySelectorAll('.footer-accordion-content').forEach(c => c.style.maxHeight = null);
-                    // Open the clicked one if it was closed
+                    const isVisible = content.style.maxHeight && content.style.maxHeight !== '0px';
+                    
+                    document.querySelectorAll('.footer-accordion-content').forEach(c => {
+                        if (c !== content) {
+                            c.style.maxHeight = null;
+                        }
+                    });
+
                     if (!isVisible) {
                         content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = null;
                     }
                 }
             });
         });
 
-        window.addEventListener('resize', () => {
+        const resizeHandler = () => {
              if (window.innerWidth >= 768) {
                 document.querySelectorAll('.footer-accordion-content').forEach(c => c.style.maxHeight = '1000px');
              } else {
-                document.querySelectorAll('.footer-accordion-content').forEach(c => c.style.maxHeight = null);
+                document.querySelectorAll('.footer-accordion-content').forEach(c => {
+                    c.style.maxHeight = null; // Collapse all on resize to mobile
+                });
              }
-        });
+        };
+
+        window.addEventListener('resize', resizeHandler);
         // Initial check
-        if (window.innerWidth >= 768) {
-            document.querySelectorAll('.footer-accordion-content').forEach(c => c.style.maxHeight = '1000px');
-        }
+        resizeHandler();
     }
     
     // Initialize Footer Accordion
